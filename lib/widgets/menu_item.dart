@@ -3,9 +3,10 @@ import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MenuBar extends StatelessWidget {
+class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -28,7 +29,7 @@ class MenuBar extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                "القائمة",
+                "الوجبات الأساسية",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: AppTheme.blackTextColor,
@@ -41,18 +42,20 @@ class MenuBar extends StatelessWidget {
       ),
       subtitle: SizedBox(
         height: 250,
-        child: GridView.builder(
+        child: PageView.builder(
+          controller: PageController(viewportFraction: .9),
           physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.all(10),
+
+          //padding: EdgeInsets.all(10),
           scrollDirection: Axis.horizontal,
-          gridDelegate: AppConstant.gridDelegate(
-            crossAxisCount: 1,
-            childAspectRatio: 1.5,
-          ),
+          // gridDelegate: AppConstant.gridDelegate(
+          //   crossAxisCount: 1,
+          //   childAspectRatio: 1.5,
+          // ),
           itemCount: AppConstant.categoriesList.length,
           itemBuilder: (context, index) {
             Categories category = AppConstant.categoriesList[index];
-            return MenuShape(category: category);
+            return ItemShape(category: category);
           },
         ),
       ),
@@ -60,13 +63,14 @@ class MenuBar extends StatelessWidget {
   }
 }
 
-class MenuShape extends StatelessWidget {
+class ItemShape extends StatelessWidget {
   final Categories category;
-  const MenuShape({required this.category});
+  const ItemShape({required this.category});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: AppTheme.whiteBackColor,
         borderRadius: BorderRadius.circular(25),

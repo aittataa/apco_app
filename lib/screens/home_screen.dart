@@ -2,7 +2,7 @@ import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/floating_button.dart';
 import 'package:apco_app/widgets/items_bar.dart';
-import 'package:apco_app/widgets/menu_bar.dart';
+import 'package:apco_app/widgets/menu_item.dart';
 import 'package:apco_app/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +20,7 @@ class HomeScreen extends StatelessWidget {
             color: AppTheme.blackIconColor,
           ),
         ),
+        centerTitle: true,
         title: Text(
           "${AppMessages.GREETING_TITLE}",
           textAlign: TextAlign.center,
@@ -28,7 +29,6 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.w900,
           ),
         ),
-        centerTitle: true,
         actions: [
           Container(
             margin: EdgeInsets.all(5),
@@ -53,7 +53,8 @@ class HomeScreen extends StatelessWidget {
             children: [
               SearchBar(),
               ItemsBar(),
-              MenuBar(),
+              //MenuBar(),
+              MenuItem(),
             ],
           ),
         ),
