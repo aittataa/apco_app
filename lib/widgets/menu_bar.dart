@@ -9,9 +9,11 @@ class MenuBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.red,
       child: ListTile(
         contentPadding: EdgeInsets.zero,
-        title: Padding(
+        title: Container(
+          color: Colors.green,
           padding: EdgeInsets.all(10),
           child: Row(
             children: [
@@ -40,8 +42,9 @@ class MenuBar extends StatelessWidget {
             ],
           ),
         ),
-        subtitle: SizedBox(
+        subtitle: Container(
           height: 250,
+          color: Colors.yellow,
           child: GridView.builder(
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.all(10),

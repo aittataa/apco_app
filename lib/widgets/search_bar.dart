@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Text(
             "${AppMessages.GREETING_SUBTITLE}",
             textAlign: TextAlign.center,
@@ -39,7 +39,7 @@ class TextBox extends StatelessWidget {
         boxShadow: [AppConstant.boxShadow],
       ),
       child: TextField(
-        cursorColor: AppTheme.lightMainColor,
+        cursorColor: AppTheme.mainColor,
         style: TextStyle(
           color: AppTheme.blackTextColor.withOpacity(.75),
           fontWeight: FontWeight.w900,
@@ -47,7 +47,7 @@ class TextBox extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           icon: Icon(
-            CupertinoIcons.search,
+            Icons.search,
             color: AppTheme.lightMainColor,
           ),
           hintText: "Search...",

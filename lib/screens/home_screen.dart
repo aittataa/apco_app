@@ -1,8 +1,7 @@
-import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
-import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/widgets/floating_button.dart';
+import 'package:apco_app/widgets/items_bar.dart';
 import 'package:apco_app/widgets/menu_bar.dart';
 import 'package:apco_app/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -52,42 +51,8 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              /// First
               SearchBar(),
-
-              /// Second
-              Container(
-                height: 50,
-                child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  padding: EdgeInsets.all(5),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: AppConstant.categoriesList.length,
-                  itemBuilder: (context, index) {
-                    Categories category = AppConstant.categoriesList[index];
-                    return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-                      decoration: BoxDecoration(
-                        color: AppTheme.lightMainColor,
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "${category.label}",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: AppTheme.whiteTextColor,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-
-              /// Third
+              ItemsBar(),
               MenuBar(),
             ],
           ),
