@@ -1,9 +1,11 @@
+import 'package:apco_app/models/meal.dart';
+
 class Categories {
   final int id;
   final String label;
   final String picture;
   final String description;
-  final List meals;
+  final List<Meal> meals;
 
   Categories({
     required this.id,

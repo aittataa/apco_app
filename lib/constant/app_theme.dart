@@ -8,6 +8,7 @@ class AppTheme {
 
   /// Icons Colors
   static const Color whiteIconColor = Color(0xFFFFFFFF);
+  static const Color redIconColor = Color(0xFFF44336);
   static const Color blackIconColor = Color(0xFF000000);
 
   /// Text Colors

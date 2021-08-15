@@ -1,6 +1,7 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
+import 'package:apco_app/widgets/title_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -10,41 +11,16 @@ class MenuBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
-      title: Padding(
-        padding: EdgeInsets.all(10),
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: AppTheme.lightMainColor,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.chevron_left,
-                color: AppTheme.whiteIconColor,
-                size: 27,
-              ),
-            ),
-            Expanded(
-              child: Text(
-                "القائمة",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  color: AppTheme.blackTextColor,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-            ),
-          ],
-        ),
+      title: TitleBar(
+        onTap: () {},
+        title: "القائمة",
       ),
       subtitle: SizedBox(
         height: 250,
         child: GridView.builder(
           physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.all(10),
           scrollDirection: Axis.horizontal,
+          padding: EdgeInsets.all(10),
           gridDelegate: AppConstant.gridDelegate(
             crossAxisCount: 1,
             childAspectRatio: 1.5,

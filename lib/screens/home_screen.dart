@@ -2,6 +2,7 @@ import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/floating_button.dart';
 import 'package:apco_app/widgets/items_bar.dart';
+import 'package:apco_app/widgets/menu_bar.dart';
 import 'package:apco_app/widgets/menu_item.dart';
 import 'package:apco_app/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -53,8 +54,8 @@ class HomeScreen extends StatelessWidget {
             children: [
               SearchBar(),
               ItemsBar(),
-              //MenuBar(),
               MenuItem(),
+              MenuBar(),
             ],
           ),
         ),
