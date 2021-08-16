@@ -1,9 +1,9 @@
+import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_theme.dart';
+import 'package:apco_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'constant/app_constant.dart';
-import 'constant/app_theme.dart';
-import 'widgets/splash.dart';
+import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,7 @@ void main() {
 class APCO extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppConstant.appTitle,
       themeMode: ThemeMode.light,
@@ -34,7 +34,8 @@ class APCO extends StatelessWidget {
         primaryColor: AppTheme.backColor,
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
-      home: Splash(),
+      home: HomeScreen(),
+      // home: Splash(),
     );
   }
 }

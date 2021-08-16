@@ -1,29 +1,27 @@
 import 'package:apco_app/constant/app_constant.dart';
-import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
-import 'package:apco_app/widgets/floating_button.dart';
+import 'package:apco_app/models/meal.dart';
+import 'package:apco_app/widgets/items_bar.dart';
 import 'package:apco_app/widgets/meals_bar.dart';
-import 'package:apco_app/widgets/menu_bar.dart';
-import 'package:apco_app/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class MealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pop(context),
           icon: Icon(
-            CupertinoIcons.phone_fill_arrow_down_left,
+            CupertinoIcons.chevron_back,
             color: AppTheme.blackIconColor,
           ),
         ),
         centerTitle: true,
         title: Text(
-          "${AppMessages.GREETING_TITLE}",
+          "${AppConstant.menuList[AppConstant.itemIndex].label}",
           textAlign: TextAlign.center,
           style: TextStyle(
             color: AppTheme.blackTextColor.withOpacity(.75),
@@ -49,19 +47,31 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              SearchBar(),
-              MealsBar(index: 0),
-              MenuBar(),
-              MealsBar(index: AppConstant.itemIndex),
-            ],
-          ),
+        child: Column(
+          children: [
+            ItemsBar(),
+            Expanded(
+              child: GridView.builder(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                gridDelegate: AppConstant.gridDelegate(
+                  crossAxisCount: 1,
+                  childAspectRatio: 2,
+                ),
+                itemCount: AppConstant.menuList[AppConstant.itemIndex].meals.length,
+                itemBuilder: (context, i) {
+                  Meal meal = AppConstant.menuList[AppConstant.itemIndex].meals[i];
+                  final bool state = i % 3 == 0;
+                  return MealShape(
+                    meal: meal,
+                    state: state,
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
-      floatingActionButton: FloatingButton(),
     );
   }
 }

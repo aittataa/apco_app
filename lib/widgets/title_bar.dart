@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class TitleBar extends StatelessWidget {
   final String title;
-  final Function onTap;
+  final onTap;
   const TitleBar({
     required this.title,
     required this.onTap,
@@ -11,7 +11,7 @@ class TitleBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Padding(
         padding: EdgeInsets.all(10),
         child: Row(

@@ -1,33 +1,37 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
-import 'package:apco_app/models/categories.dart';
+import 'package:apco_app/models/meal.dart';
+import 'package:apco_app/screens/meals_screen.dart';
 import 'package:apco_app/widgets/title_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
-class MenuItem extends StatelessWidget {
+class MealsBar extends StatelessWidget {
+  final int index;
+  const MealsBar({required this.index});
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: TitleBar(
-        onTap: () {},
-        title: "الوجبات الأساسية",
+        onTap: () => Get.to(() => MealsScreen()),
+        title: "${AppConstant.menuList[index].label}",
       ),
       subtitle: SizedBox(
         height: 200,
         child: PageView.builder(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          itemCount: AppConstant.categoriesList.length,
-          itemBuilder: (context, index) {
-            Categories category = AppConstant.categoriesList[index];
-            final bool state = index % 3 == 0;
-            return ItemShape(
-              category: category,
+          itemCount: AppConstant.menuList[index].meals.length,
+          itemBuilder: (context, i) {
+            Meal meal = AppConstant.menuList[index].meals[i];
+            final bool state = i % 3 == 0;
+            return MealShape(
+              meal: meal,
               state: state,
             );
           },
@@ -37,11 +41,10 @@ class MenuItem extends StatelessWidget {
   }
 }
 
-class ItemShape extends StatelessWidget {
-  final Categories category;
+class MealShape extends StatelessWidget {
+  final Meal meal;
   final bool state;
-
-  const ItemShape({required this.category, required this.state});
+  const MealShape({required this.meal, required this.state});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +74,7 @@ class ItemShape extends StatelessWidget {
                 Container(
                   child: ListTile(
                     title: AutoSizeText(
-                      "${category.label}",
+                      "${meal.label}",
                       textAlign: TextAlign.right,
                       minFontSize: 14,
                       maxFontSize: 18,
@@ -86,7 +89,7 @@ class ItemShape extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          "30 min.",
+                          "${meal.time} min.",
                           style: TextStyle(
                             color: AppTheme.blackTextColor.withOpacity(.5),
                             fontWeight: FontWeight.bold,
@@ -100,7 +103,7 @@ class ItemShape extends StatelessWidget {
                           color: AppTheme.lightMainColor,
                         ),
                         Text(
-                          " 4.3",
+                          " ${meal.rate.toStringAsFixed(1)}",
                           style: TextStyle(
                             color: AppTheme.blackTextColor.withOpacity(.5),
                             fontWeight: FontWeight.bold,
@@ -162,7 +165,7 @@ class ItemShape extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 image: DecorationImage(
-                  image: CachedNetworkImageProvider("${category.picture}"),
+                  image: CachedNetworkImageProvider("${meal.picture}"),
                   fit: BoxFit.cover,
                 ),
               ),

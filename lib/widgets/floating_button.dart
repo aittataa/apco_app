@@ -8,8 +8,9 @@ class FloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
-      dialRoot: null,
-      visible: true,
+      onPress: () {
+        print(AppConstant.mealTime);
+      },
       backgroundColor: AppTheme.mainColor,
       activeBackgroundColor: AppTheme.lightMainColor,
       foregroundColor: AppTheme.whiteIconColor,
