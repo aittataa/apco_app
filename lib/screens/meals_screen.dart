@@ -51,7 +51,10 @@ class MealsScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ItemsBar(index: index),
+          ItemsBar(
+            index: index,
+            onTap: () {},
+          ),
           Expanded(
             child: GridView.builder(
               physics: BouncingScrollPhysics(),

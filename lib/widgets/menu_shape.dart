@@ -1,7 +1,7 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:apco_app/widgets/label_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -35,17 +35,9 @@ class MenuShape extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: AutoSizeText(
-                "${category.label}",
-                textAlign: TextAlign.center,
-                minFontSize: 14,
-                maxFontSize: 18,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: AppTheme.blackTextColor,
-                  fontWeight: FontWeight.w900,
-                ),
+              title: LabelText(
+                label: "${category.label}",
+                color: AppTheme.blackTextColor,
               ),
               subtitle: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

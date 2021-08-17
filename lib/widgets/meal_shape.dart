@@ -1,7 +1,7 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:apco_app/widgets/label_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,17 +37,10 @@ class MealShape extends StatelessWidget {
                 ),
                 SizedBox(
                   child: ListTile(
-                    title: AutoSizeText(
-                      "${meal.label}",
-                      textAlign: TextAlign.right,
-                      minFontSize: 14,
-                      maxFontSize: 18,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: AppTheme.blackTextColor,
-                        fontWeight: FontWeight.w900,
-                      ),
+                    title: LabelText(
+                      label: "${meal.label}",
+                      color: AppTheme.blackTextColor,
+                      textAlign: TextAlign.end,
                     ),
                     subtitle: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -102,18 +95,9 @@ class MealShape extends StatelessWidget {
                       Expanded(
                         child: Container(
                           padding: EdgeInsets.all(10),
-                          child: AutoSizeText(
-                            "49 DH",
-                            textAlign: TextAlign.center,
-                            minFontSize: 14,
-                            maxFontSize: 18,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: AppTheme.blackTextColor,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 16,
-                            ),
+                          child: LabelText(
+                            label: "49 DH",
+                            color: AppTheme.blackTextColor,
                           ),
                         ),
                       ),

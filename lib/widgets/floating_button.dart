@@ -8,9 +8,6 @@ class FloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
-      onPress: () {
-        print(AppConstant.mealTime);
-      },
       backgroundColor: AppTheme.mainColor,
       activeBackgroundColor: AppTheme.lightMainColor,
       foregroundColor: AppTheme.whiteIconColor,
@@ -19,19 +16,41 @@ class FloatingButton extends StatelessWidget {
       overlayColor: AppTheme.backColor,
       icon: CupertinoIcons.shopping_cart,
       activeIcon: CupertinoIcons.clear,
-      spaceBetweenChildren: 10,
+      spaceBetweenChildren: 5,
+      childMargin: EdgeInsets.all(5),
       curve: AppConstant.curve,
       animationSpeed: 250,
       children: [
         SpeedDialChild(
           onTap: () => {AppConstant.launchURL("tel:+212673377573")},
-          child: Icon(CupertinoIcons.phone_fill),
+          child: Icon(CupertinoIcons.headphones),
+          label: "Contact US",
+          labelStyle: TextStyle(
+            color: AppTheme.mainColor,
+            fontWeight: FontWeight.bold,
+          ),
           backgroundColor: AppTheme.whiteBackColor,
           foregroundColor: AppTheme.lightMainColor,
         ),
         SpeedDialChild(
           onTap: () => {AppConstant.launchURL("https:www.google.com")},
           child: Icon(CupertinoIcons.chat_bubble_fill),
+          label: "Text US",
+          labelStyle: TextStyle(
+            color: AppTheme.mainColor,
+            fontWeight: FontWeight.bold,
+          ),
+          backgroundColor: AppTheme.whiteBackColor,
+          foregroundColor: AppTheme.lightMainColor,
+        ),
+        SpeedDialChild(
+          onTap: () => {},
+          child: Icon(CupertinoIcons.phone_fill),
+          label: "Call US",
+          labelStyle: TextStyle(
+            color: AppTheme.mainColor,
+            fontWeight: FontWeight.bold,
+          ),
           backgroundColor: AppTheme.whiteBackColor,
           foregroundColor: AppTheme.lightMainColor,
         ),
