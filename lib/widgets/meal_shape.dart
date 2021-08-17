@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 
 class MealShape extends StatelessWidget {
   final Meal meal;
-  const MealShape({required this.meal});
+  final bool state;
+  const MealShape({required this.meal, required this.state});
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +31,8 @@ class MealShape extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {},
                     icon: Icon(
-                      CupertinoIcons.heart,
-                      color: AppTheme.blackIconColor,
+                      state ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
+                      color: state ? AppTheme.redIconColor : AppTheme.blackIconColor,
                     ),
                   ),
                 ),
@@ -86,7 +87,7 @@ class MealShape extends StatelessWidget {
                           child: IconButton(
                             onPressed: null,
                             icon: Icon(
-                              CupertinoIcons.shopping_cart,
+                              CupertinoIcons.cart_fill,
                               color: AppTheme.whiteIconColor,
                             ),
                           ),
@@ -96,7 +97,7 @@ class MealShape extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.all(10),
                           child: LabelText(
-                            label: "49 DH",
+                            label: "${meal.time} DH",
                             color: AppTheme.blackTextColor,
                           ),
                         ),

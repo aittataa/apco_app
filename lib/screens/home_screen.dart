@@ -1,12 +1,15 @@
-import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
+import 'package:apco_app/screens/favorite_screen.dart';
+import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/floating_button.dart';
+import 'package:apco_app/widgets/items_bar.dart';
 import 'package:apco_app/widgets/meals_bar.dart';
 import 'package:apco_app/widgets/menu_bar.dart';
 import 'package:apco_app/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -15,10 +18,11 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => Get.to(() => ShoppingScreen()),
           icon: Icon(
-            CupertinoIcons.list_bullet_indent,
-            color: AppTheme.blackIconColor.withOpacity(.75),
+            CupertinoIcons.cart_fill,
+            color: AppTheme.mainColor,
+            size: 27,
           ),
         ),
         centerTitle: true,
@@ -39,7 +43,7 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: IconButton(
-              onPressed: null,
+              onPressed: () => Get.to(() => FavoriteScreen()),
               icon: Icon(
                 CupertinoIcons.heart_fill,
                 color: AppTheme.whiteIconColor,
@@ -48,17 +52,16 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              SearchBar(),
-              MealsBar(index: 0),
-              MenuBar(),
-              MealsBar(index: AppConstant.itemIndex),
-            ],
-          ),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            SearchBar(),
+            ItemsBar(index: 0),
+            MealsBar(index: 0),
+            MenuBar(),
+            MealsBar(index: 1),
+          ],
         ),
       ),
       floatingActionButton: FloatingButton(),

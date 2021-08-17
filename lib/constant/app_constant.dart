@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppConstant {
@@ -10,6 +11,16 @@ class AppConstant {
   static int itemIndex = Random().nextInt(7);
   static const Duration duration = Duration(milliseconds: 1500);
   static const Curve curve = Curves.linearToEaseOut;
+
+  static setMeal(Meal meal) async {
+    var database = await Hive.openBox("${meal.id}");
+    database.add(meal);
+  }
+
+  static getMeal(Meal meal) async {
+    var database = await Hive.openBox("${meal.id}");
+    return database.getAt(0);
+  }
 
   static gridDelegate({int crossAxisCount = 1, double childAspectRatio = 1}) {
     return SliverGridDelegateWithFixedCrossAxisCount(

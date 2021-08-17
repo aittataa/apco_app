@@ -14,7 +14,7 @@ class FloatingButton extends StatelessWidget {
       elevation: 1,
       overlayOpacity: 0.5,
       overlayColor: AppTheme.backColor,
-      icon: CupertinoIcons.shopping_cart,
+      icon: CupertinoIcons.text_alignleft,
       activeIcon: CupertinoIcons.clear,
       spaceBetweenChildren: 5,
       childMargin: EdgeInsets.all(5),
@@ -22,7 +22,7 @@ class FloatingButton extends StatelessWidget {
       animationSpeed: 250,
       children: [
         SpeedDialChild(
-          onTap: () => {AppConstant.launchURL("tel:+212673377573")},
+          //onTap: () => {AppConstant.launchURL("tel:+212673377573")},
           child: Icon(CupertinoIcons.headphones),
           label: "Contact US",
           labelStyle: TextStyle(

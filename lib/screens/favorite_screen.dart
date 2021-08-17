@@ -1,15 +1,16 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
-import 'package:apco_app/models/categories.dart';
-import 'package:apco_app/screens/favorite_screen.dart';
-import 'package:apco_app/screens/meals_screen.dart';
+import 'package:apco_app/models/meal.dart';
+import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/floating_button.dart';
-import 'package:apco_app/widgets/menu_shape.dart';
+import 'package:apco_app/widgets/meal_shape.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,7 @@ class CategoriesScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          "القائمة",
+          "مفضلاتي",
           textAlign: TextAlign.center,
           style: TextStyle(
             color: AppTheme.blackTextColor.withOpacity(.75),
@@ -40,9 +41,9 @@ class CategoriesScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: IconButton(
-              onPressed: () => Get.to(() => FavoriteScreen()),
+              onPressed: () => Get.off(() => ShoppingScreen()),
               icon: Icon(
-                CupertinoIcons.heart_fill,
+                CupertinoIcons.cart_fill,
                 color: AppTheme.whiteIconColor,
               ),
             ),
@@ -52,21 +53,15 @@ class CategoriesScreen extends StatelessWidget {
       body: GridView.builder(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(5),
         gridDelegate: AppConstant.gridDelegate(
-          crossAxisCount: 2,
-          childAspectRatio: 0.75,
+          crossAxisCount: 1,
+          childAspectRatio: 2,
         ),
-        itemCount: AppConstant.menuList.length,
-        itemBuilder: (context, index) {
-          Categories category = AppConstant.menuList[index];
-          return MenuShape(
-            category: category,
-            onTap: () {
-              AppConstant.itemIndex = index;
-              Get.to(() => MealsScreen(index: index));
-            },
-          );
+        itemCount: AppConstant.menuList[0].meals.length,
+        itemBuilder: (context, i) {
+          Meal meal = AppConstant.menuList[0].meals[i];
+          return MealShape(meal: meal, state: true);
         },
       ),
       floatingActionButton: FloatingButton(),

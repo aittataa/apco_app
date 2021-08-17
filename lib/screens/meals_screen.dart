@@ -67,7 +67,10 @@ class MealsScreen extends StatelessWidget {
               itemCount: AppConstant.menuList[index].meals.length,
               itemBuilder: (context, i) {
                 Meal meal = AppConstant.menuList[index].meals[i];
-                return MealShape(meal: meal);
+                return MealShape(
+                  meal: meal,
+                  state: index % 3 == 0,
+                );
               },
             ),
           ),
