@@ -1,6 +1,7 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/screens/categories_screen.dart';
+import 'package:apco_app/screens/meals_screen.dart';
 import 'package:apco_app/widgets/menu_shape.dart';
 import 'package:apco_app/widgets/title_bar.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,8 @@ class MenuBar extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: TitleBar(
-        onTap: () => Get.to(() => CategoriesScreen()),
         title: "القائمة",
+        onTap: () => Get.to(() => CategoriesScreen()),
       ),
       subtitle: SizedBox(
         height: 250,
@@ -28,7 +29,13 @@ class MenuBar extends StatelessWidget {
           itemCount: AppConstant.menuList.length,
           itemBuilder: (context, index) {
             Categories category = AppConstant.menuList[index];
-            return MenuShape(category: category);
+            return MenuShape(
+              category: category,
+              onTap: () {
+                AppConstant.itemIndex = index;
+                Get.to(() => MealsScreen(index: index));
+              },
+            );
           },
         ),
       ),

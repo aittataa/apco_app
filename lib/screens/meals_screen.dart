@@ -1,12 +1,15 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
+import 'package:apco_app/widgets/floating_button.dart';
 import 'package:apco_app/widgets/items_bar.dart';
-import 'package:apco_app/widgets/meals_bar.dart';
+import 'package:apco_app/widgets/meal_shape.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MealsScreen extends StatelessWidget {
+  final int index;
+  const MealsScreen({Key? key, required this.index});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +24,7 @@ class MealsScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(
-          "${AppConstant.menuList[AppConstant.itemIndex].label}",
+          "${AppConstant.menuList[index].label}",
           textAlign: TextAlign.center,
           style: TextStyle(
             color: AppTheme.blackTextColor.withOpacity(.75),
@@ -46,32 +49,28 @@ class MealsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        child: Column(
-          children: [
-            ItemsBar(),
-            Expanded(
-              child: GridView.builder(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                gridDelegate: AppConstant.gridDelegate(
-                  crossAxisCount: 1,
-                  childAspectRatio: 2,
-                ),
-                itemCount: AppConstant.menuList[AppConstant.itemIndex].meals.length,
-                itemBuilder: (context, i) {
-                  Meal meal = AppConstant.menuList[AppConstant.itemIndex].meals[i];
-                  final bool state = i % 3 == 0;
-                  return MealShape(
-                    meal: meal,
-                    state: state,
-                  );
-                },
+      body: Column(
+        children: [
+          ItemsBar(index: index),
+          Expanded(
+            child: GridView.builder(
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              padding: EdgeInsets.all(5),
+              gridDelegate: AppConstant.gridDelegate(
+                crossAxisCount: 1,
+                childAspectRatio: 2,
               ),
+              itemCount: AppConstant.menuList[index].meals.length,
+              itemBuilder: (context, i) {
+                Meal meal = AppConstant.menuList[index].meals[i];
+                return MealShape(meal: meal);
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+      floatingActionButton: FloatingButton(),
     );
   }
 }

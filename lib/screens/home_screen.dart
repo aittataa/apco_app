@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {},
           icon: Icon(
             CupertinoIcons.phone_fill_arrow_down_left,
-            color: AppTheme.blackIconColor,
+            color: AppTheme.blackIconColor.withOpacity(.75),
           ),
         ),
         centerTitle: true,
