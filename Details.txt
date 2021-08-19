@@ -6,6 +6,9 @@ flutter pub run change_app_package_name:main com.new.package.name
 flutter pub get
 flutter pub run flutter_launcher_name:main
 
+flutter pub get
+flutter pub run flutter_app_name
+
 ------------------ Change The icon
 flutter pub get
 flutter pub run flutter_launcher_icons:main
@@ -17,10 +20,4 @@ flutter build apk --release --target-platform android-arm
 flutter build apk --release --target-platform android-arm --analyze-size
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-"السلطات",
-"المقبلات",
-"السندوتشات",
-"المعجنات (أسمر / أبيض)",
-"الحلويات",
-"العصيرات",
-"الأطباق الرئيسية",
+
