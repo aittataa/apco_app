@@ -5,6 +5,7 @@ class AppTheme {
   static const Color lightMainColor = Color(0xFF04aba4);
   static const Color backColor = Color(0xFFF0F0F0);
   static const Color whiteBackColor = Color(0xFFFFFFFF);
+  static const Color blackBackColor = Color(0xFF000000);
 
   /// Icons Colors
   static const Color whiteIconColor = Color(0xFFFFFFFF);
