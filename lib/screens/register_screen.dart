@@ -12,7 +12,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }

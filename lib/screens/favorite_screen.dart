@@ -1,6 +1,7 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
+import 'package:apco_app/screens/details_screen.dart';
 import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/floating_button.dart';
 import 'package:apco_app/widgets/meal_shape.dart';
@@ -61,7 +62,11 @@ class FavoriteScreen extends StatelessWidget {
         itemCount: AppConstant.menuList[0].meals.length,
         itemBuilder: (context, i) {
           Meal meal = AppConstant.menuList[0].meals[i];
-          return MealShape(meal: meal, state: true);
+          return MealShape(
+            meal: meal,
+            state: true,
+            onTap: () => Get.to(() => DetailsScreen(category: AppConstant.menuList[0])),
+          );
         },
       ),
       floatingActionButton: FloatingButton(),

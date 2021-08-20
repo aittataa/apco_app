@@ -33,7 +33,7 @@ class MenuBar extends StatelessWidget {
               category: category,
               onTap: () {
                 AppConstant.itemIndex = index;
-                Get.to(() => MealsScreen(index: index));
+                Get.to(() => MealsScreen(index: index, category: category));
               },
             );
           },

@@ -1,3 +1,4 @@
+import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
@@ -9,9 +10,23 @@ import 'package:apco_app/widgets/menu_bar.dart';
 import 'package:apco_app/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarIconBrightness: Brightness.dark,
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,9 +73,15 @@ class HomeScreen extends StatelessWidget {
           children: [
             SearchBar(),
             ItemsBar(index: 0),
-            MealsBar(index: 0),
+            MealsBar(
+              index: 0,
+              category: AppConstant.menuList[0],
+            ),
             MenuBar(),
-            MealsBar(index: 1),
+            MealsBar(
+              index: 1,
+              category: AppConstant.menuList[1],
+            ),
           ],
         ),
       ),

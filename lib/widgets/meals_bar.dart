@@ -1,5 +1,7 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
+import 'package:apco_app/screens/details_screen.dart';
 import 'package:apco_app/screens/meals_screen.dart';
 import 'package:apco_app/widgets/meal_shape.dart';
 import 'package:apco_app/widgets/title_bar.dart';
@@ -9,17 +11,18 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class MealsBar extends StatelessWidget {
+  final Categories category;
   final int index;
-  const MealsBar({required this.index});
+  const MealsBar({required this.index, required this.category});
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: TitleBar(
-        title: "${AppConstant.menuList[index].label}",
+        title: "${category.label}",
         onTap: () {
           AppConstant.itemIndex = index;
-          Get.to(() => MealsScreen(index: index));
+          Get.to(() => MealsScreen(index: index, category: category));
         },
       ),
       subtitle: SizedBox(
@@ -27,12 +30,13 @@ class MealsBar extends StatelessWidget {
         child: PageView.builder(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          itemCount: AppConstant.menuList[index].meals.length,
+          itemCount: category.meals.length,
           itemBuilder: (context, i) {
-            Meal meal = AppConstant.menuList[index].meals[i];
+            Meal meal = category.meals[i];
             return MealShape(
               meal: meal,
-              state: index % 3 == 0,
+              state: true,
+              onTap: () => Get.to(() => DetailsScreen(category: category)),
             );
           },
         ),
