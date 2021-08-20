@@ -1,6 +1,6 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
-import 'package:apco_app/screens/login_screen.dart';
+import 'package:apco_app/widgets/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -34,9 +34,9 @@ class APCO extends StatelessWidget {
         primaryColor: AppTheme.backColor,
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
-      home: LoginScreen(),
+      // home: LoginScreen(),
       // home: HomeScreen(),
-      // home: Splash(),
+      home: Splash(),
     );
   }
 }

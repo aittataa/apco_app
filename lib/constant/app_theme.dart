@@ -7,6 +7,10 @@ class AppTheme {
   static const Color whiteBackColor = Color(0xFFFFFFFF);
   static const Color blackBackColor = Color(0xFF000000);
 
+  /// TODO : Transparent Color
+  static const Color transparentColor = Color(0x00000000);
+  static const Color facebookColor = Color(0xFF2196F3);
+
   /// Icons Colors
   static const Color whiteIconColor = Color(0xFFFFFFFF);
   static const Color redIconColor = Color(0xFFF44336);

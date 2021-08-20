@@ -22,13 +22,13 @@ class SearchBar extends StatelessWidget {
             ),
           ),
         ),
-        subtitle: TextBox(),
+        subtitle: SearchBox(),
       ),
     );
   }
 }
 
-class TextBox extends StatelessWidget {
+class SearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

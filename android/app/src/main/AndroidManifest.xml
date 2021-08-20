@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.apco.apco_app">
    <application
-        android:label="apco_app"
+        android:label="Lounge 940"
         android:icon="@mipmap/app_icon_round">
         <activity
             android:name=".MainActivity"

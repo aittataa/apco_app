@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,6 +12,8 @@ class AppConstant {
   static int itemIndex = Random().nextInt(7);
   static const Duration duration = Duration(milliseconds: 1500);
   static const Curve curve = Curves.linearToEaseOut;
+  static final double screenWidth = Get.size.width;
+  static final double screenHeight = Get.size.height;
 
   static setMeal(Meal meal) async {
     var database = await Hive.openBox("${meal.id}");
