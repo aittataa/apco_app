@@ -74,7 +74,7 @@ class MealsScreen extends StatelessWidget {
                 return MealShape(
                   meal: meal,
                   state: true,
-                  onTap: () => Get.to(() => DetailsScreen(category: category)),
+                  onTap: () => Get.to(() => DetailsScreen(index: i, category: category)),
                 );
               },
             ),

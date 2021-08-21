@@ -58,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: TextEditingController(),
                         hint: "البريد الإلكتروني",
                         icon: CupertinoIcons.mail_solid,
+                        keyboardType: TextInputType.emailAddress,
                         suffixIcon: Icon(
                           true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
                           color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
@@ -75,10 +76,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: TextEditingController(),
                         hint: "كلمة المرور",
                         icon: CupertinoIcons.lock_shield_fill,
-                        obscureText: !false,
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: true,
                         suffixIcon: Icon(
                           Icons.remove_red_eye,
-                          color: !true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
+                          color: true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
                         ),
                       ),
                     ),

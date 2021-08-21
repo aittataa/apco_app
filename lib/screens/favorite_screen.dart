@@ -65,7 +65,7 @@ class FavoriteScreen extends StatelessWidget {
           return MealShape(
             meal: meal,
             state: true,
-            onTap: () => Get.to(() => DetailsScreen(category: AppConstant.menuList[0])),
+            onTap: () => Get.to(() => DetailsScreen(index: i, category: AppConstant.menuList[0])),
           );
         },
       ),

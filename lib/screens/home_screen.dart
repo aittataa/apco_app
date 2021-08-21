@@ -42,10 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         title: Text(
-          "${AppMessages.GREETING_TITLE}",
+          "${AppMessages.appTitle}",
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(.75),
+            color: AppTheme.mainColor, //.withOpacity(.75),
             fontWeight: FontWeight.w900,
           ),
         ),

@@ -88,10 +88,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           hint: "كلمة المرور",
                           icon: CupertinoIcons.lock_shield_fill,
                           keyboardType: TextInputType.visiblePassword,
-                          obscureText: !false,
+                          obscureText: true,
                           suffixIcon: Icon(
                             Icons.remove_red_eye,
-                            color: !true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
+                            color: true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
                           ),
                         ),
                       ),
