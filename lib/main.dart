@@ -33,8 +33,6 @@ class APCO extends StatelessWidget {
         primaryColor: AppTheme.backColor,
         scaffoldBackgroundColor: AppTheme.backColor,
       ),
-      // home: LoginScreen(),
-      // home: HomeScreen(),
       home: Splash(),
     );
   }
