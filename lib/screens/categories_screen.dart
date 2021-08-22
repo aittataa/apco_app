@@ -3,6 +3,7 @@ import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/meals_screen.dart';
+import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/floating_button.dart';
 import 'package:apco_app/widgets/menu_shape.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,13 +16,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            CupertinoIcons.chevron_back,
-            color: AppTheme.blackIconColor,
-          ),
-        ),
+        leading: BackIcon(),
         centerTitle: true,
         title: Text(
           "القائمة",
@@ -63,7 +58,7 @@ class CategoriesScreen extends StatelessWidget {
           return MenuShape(
             category: category,
             onTap: () {
-              AppConstant.itemIndex = index;
+              //AppConstant.itemIndex = index;
               Get.to(() => MealsScreen(index: index, category: category));
             },
           );

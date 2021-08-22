@@ -1,5 +1,6 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
+import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,13 +20,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            CupertinoIcons.chevron_back,
-            color: AppTheme.blackIconColor,
-          ),
-        ),
+        leading: BackIcon(),
         centerTitle: true,
         title: Text(
           "وسيلة الدفع",
@@ -102,8 +97,8 @@ class PaymentShape extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
         color: AppTheme.whiteBackColor,
-        borderRadius: BorderRadius.circular(10),
         boxShadow: [AppConstant.boxShadow],
+        borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
         onTap: onTap,
@@ -124,7 +119,7 @@ class PaymentShape extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: IconButton(
-            onPressed: null, // () => Get.off(() => PaymentScreen()),
+            onPressed: null,
             icon: Icon(
               CupertinoIcons.chevron_left_2,
               color: AppTheme.whiteIconColor,

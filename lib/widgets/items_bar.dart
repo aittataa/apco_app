@@ -25,11 +25,12 @@ class ItemsBar extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         itemCount: AppConstant.menuList.length,
         itemBuilder: (context, i) {
-          bool state = AppConstant.itemIndex == i;
+          bool state = index == i; //AppConstant.itemIndex == i;
           Categories category = AppConstant.menuList[i];
           return GestureDetector(
             onTap: () {
-              AppConstant.itemIndex = i;
+              //AppConstant.itemIndex = i;
+              //index = i;
               (context as Element).markNeedsBuild();
             },
             child: AnimatedContainer(

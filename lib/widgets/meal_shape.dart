@@ -17,7 +17,7 @@ class MealShape extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: AppTheme.whiteBackColor,
           borderRadius: BorderRadius.circular(25),

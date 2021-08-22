@@ -5,6 +5,7 @@ import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/payment_screen.dart';
+import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/cart_shape.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,23 +14,15 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ShoppingScreen extends StatelessWidget {
-  final bool fav = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            CupertinoIcons.chevron_back,
-            color: AppTheme.blackIconColor,
-          ),
-        ),
+        leading: BackIcon(),
         centerTitle: true,
         title: Text(
           "طلباتي",
-          textAlign: TextAlign.center,
           style: TextStyle(
             color: AppTheme.blackTextColor.withOpacity(.75),
             fontWeight: FontWeight.w900,
@@ -71,11 +64,11 @@ class ShoppingScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: ListTile(
-          contentPadding: EdgeInsets.zero.copyWith(right: 10),
+          contentPadding: EdgeInsets.zero.copyWith(right: 20),
           title: Row(
             children: [
               LabelText(
-                label: "\$256",
+                label: "256 DH",
                 color: AppTheme.whiteTextColor,
                 textAlign: TextAlign.end,
               ),
@@ -93,10 +86,7 @@ class ShoppingScreen extends StatelessWidget {
             height: double.infinity,
             decoration: BoxDecoration(
               color: AppTheme.backColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-              ),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: IconButton(
               onPressed: () => Get.to(() => PaymentScreen()),

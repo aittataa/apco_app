@@ -8,7 +8,7 @@ import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppConstant {
-  static int itemIndex = Random().nextInt(7);
+  // static int itemIndex = Random().nextInt(7);
   static const Duration duration = Duration(milliseconds: 1500);
   static const Curve curve = Curves.linearToEaseOut;
   static final double screenWidth = Get.size.width;

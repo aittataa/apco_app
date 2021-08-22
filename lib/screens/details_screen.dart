@@ -4,6 +4,7 @@ import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/shopping_screen.dart';
+import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,40 +35,16 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            CupertinoIcons.chevron_back,
-            color: AppTheme.mainColor,
-          ),
-        ),
+        leading: BackIcon(),
         centerTitle: true,
         title: Text(
           "${category.label}",
           style: TextStyle(
-            color: AppTheme.mainColor, //.withOpacity(.75),
+            color: AppTheme.mainColor,
             fontWeight: FontWeight.w900,
           ),
         ),
         actions: [
-          /*
-          Container(
-            margin: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: AppTheme.lightMainColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: IconButton(
-              onPressed: () => Get.off(() => FavoriteScreen()),
-              icon: Icon(
-                CupertinoIcons.heart_fill,
-                color: AppTheme.whiteIconColor,
-              ),
-            ),
-          ),
-          */
-
           IconButton(
             onPressed: () => Get.to(() => FavoriteScreen()),
             icon: Icon(

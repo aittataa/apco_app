@@ -21,6 +21,7 @@ class CartShape extends StatelessWidget {
       child: ListTile(
         contentPadding: EdgeInsets.zero.copyWith(left: 10, right: 10),
         trailing: CircleAvatar(
+          radius: 25,
           backgroundImage: CachedNetworkImageProvider("${meal.picture}"),
         ),
         title: LabelText(
@@ -45,7 +46,6 @@ class CartShape extends StatelessWidget {
               style: TextStyle(
                 color: AppTheme.blackTextColor.withOpacity(.5),
                 fontWeight: FontWeight.bold,
-                fontSize: 13,
               ),
             ),
             SizedBox(width: 10),
@@ -59,14 +59,13 @@ class CartShape extends StatelessWidget {
               style: TextStyle(
                 color: AppTheme.blackTextColor.withOpacity(.5),
                 fontWeight: FontWeight.bold,
-                fontSize: 13,
               ),
             ),
           ],
         ),
         leading: Container(
-          alignment: Alignment.center,
-          width: 64,
+          width: 50,
+          height: 50,
           decoration: BoxDecoration(
             color: AppTheme.lightMainColor,
             shape: BoxShape.rectangle,
