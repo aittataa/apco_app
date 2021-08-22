@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "${AppMessages.appTitle}",
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: AppTheme.mainColor, //.withOpacity(.75),
+            color: AppTheme.blackTextColor.withOpacity(.75),
             fontWeight: FontWeight.w900,
           ),
         ),
@@ -67,23 +67,21 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: ListView(
         physics: BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            SearchBar(),
-            ItemsBar(index: 0),
-            MealsBar(
-              index: 0,
-              category: AppConstant.menuList[0],
-            ),
-            MenuBar(),
-            MealsBar(
-              index: 1,
-              category: AppConstant.menuList[1],
-            ),
-          ],
-        ),
+        children: [
+          SearchBar(),
+          ItemsBar(index: 0),
+          MealsBar(
+            index: 0,
+            category: AppConstant.menuList[0],
+          ),
+          MenuBar(),
+          MealsBar(
+            index: 1,
+            category: AppConstant.menuList[1],
+          ),
+        ],
       ),
       floatingActionButton: FloatingButton(),
     );
