@@ -5,17 +5,17 @@ class TextBox extends StatelessWidget {
   final TextEditingController? controller;
   final bool obscureText;
   final String hint;
-  final TextInputType? keyboardType;
+  final TextInputType keyboardType;
   final IconData icon;
   final Widget? suffixIcon;
   final dynamic onChanged;
 
   const TextBox({
     this.controller,
-    this.obscureText = false,
     required this.hint,
-    this.keyboardType,
     required this.icon,
+    this.obscureText = false,
+    this.keyboardType = TextInputType.text,
     this.suffixIcon,
     this.onChanged,
   });

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,29 @@ class AppConstant {
       childAspectRatio: childAspectRatio,
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,
+    );
+  }
+
+  static inputDecoration({String labelText = "", String hintText = ""}) {
+    return InputDecoration(
+      labelText: "$labelText",
+      hintText: "$hintText",
+      labelStyle: TextStyle(
+        color: AppTheme.mainColor,
+        fontWeight: FontWeight.w900,
+      ),
+      hintStyle: TextStyle(
+        color: AppTheme.blackTextColor.withOpacity(.5),
+        fontWeight: FontWeight.bold,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(width: 1.5, color: AppTheme.lightMainColor),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(width: 2.5, color: AppTheme.lightMainColor),
+      ),
     );
   }
 
