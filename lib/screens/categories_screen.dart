@@ -4,7 +4,6 @@ import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/meals_screen.dart';
 import 'package:apco_app/widgets/back_icon.dart';
-import 'package:apco_app/widgets/floating_button.dart';
 import 'package:apco_app/widgets/function_button.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:apco_app/widgets/menu_shape.dart';
@@ -34,27 +33,26 @@ class CategoriesScreen extends StatelessWidget {
         ],
       ),
       body: GridView.builder(
+        shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         padding: EdgeInsets.all(10),
-        shrinkWrap: true,
         gridDelegate: AppConstant.gridDelegate(
           crossAxisCount: 2,
           childAspectRatio: 0.75,
           spacing: 10,
         ),
         itemCount: AppConstant.menuList.length,
-        itemBuilder: (context, index) {
-          Categories category = AppConstant.menuList[index];
+        itemBuilder: (context, i) {
+          Categories category = AppConstant.menuList[i];
           return MenuShape(
             category: category,
             onTap: () => {
-              Get.to(() => MealsScreen(index: index, category: category)),
+              Get.to(() => MealsScreen(index: i, category: category)),
             },
           );
         },
       ),
-      floatingActionButton: FloatingButton(),
     );
   }
 }

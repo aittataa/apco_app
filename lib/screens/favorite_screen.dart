@@ -31,6 +31,7 @@ class FavoriteScreen extends StatelessWidget {
         ],
       ),
       body: GridView.builder(
+        shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),

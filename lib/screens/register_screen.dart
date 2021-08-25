@@ -46,90 +46,88 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     topRight: Radius.circular(25),
                   ),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      ListTile(
-                        dense: true,
-                        contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1,
-                        title: TextBox(
-                          controller: TextEditingController(),
-                          hint: "الاسم بالكامل",
-                          icon: CupertinoIcons.person_crop_circle,
-                          keyboardType: TextInputType.name,
-                          suffixIcon: Icon(
-                            true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                            color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
-                          ),
+                child: Column(
+                  children: [
+                    ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                      minVerticalPadding: 1,
+                      title: TextBox(
+                        controller: TextEditingController(),
+                        hint: "الاسم بالكامل",
+                        icon: CupertinoIcons.person_crop_circle,
+                        keyboardType: TextInputType.name,
+                        suffixIcon: Icon(
+                          true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                          color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
                         ),
                       ),
-                      ListTile(
-                        dense: true,
-                        contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1,
-                        title: TextBox(
-                          controller: TextEditingController(),
-                          hint: "البريد الإلكتروني",
-                          icon: CupertinoIcons.mail_solid,
-                          keyboardType: TextInputType.emailAddress,
-                          suffixIcon: Icon(
-                            true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                            color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
-                          ),
+                    ),
+                    ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                      minVerticalPadding: 1,
+                      title: TextBox(
+                        controller: TextEditingController(),
+                        hint: "البريد الإلكتروني",
+                        icon: CupertinoIcons.mail_solid,
+                        keyboardType: TextInputType.emailAddress,
+                        suffixIcon: Icon(
+                          true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                          color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
                         ),
                       ),
-                      ListTile(
-                        dense: true,
-                        contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1,
-                        title: TextBox(
-                          controller: TextEditingController(),
-                          hint: "كلمة المرور",
-                          icon: CupertinoIcons.lock_shield_fill,
-                          keyboardType: TextInputType.visiblePassword,
-                          obscureText: true,
-                          suffixIcon: Icon(
-                            Icons.remove_red_eye,
-                            color: true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
-                          ),
+                    ),
+                    ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                      minVerticalPadding: 1,
+                      title: TextBox(
+                        controller: TextEditingController(),
+                        hint: "كلمة المرور",
+                        icon: CupertinoIcons.lock_shield_fill,
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: true,
+                        suffixIcon: Icon(
+                          Icons.remove_red_eye,
+                          color: true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
                         ),
                       ),
-                      ListTile(
-                        dense: true,
-                        contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1,
-                        title: TextBox(
-                          controller: TextEditingController(),
-                          hint: "رقم الهاتف",
-                          icon: CupertinoIcons.phone_fill,
-                          keyboardType: TextInputType.phone,
-                          suffixIcon: Icon(
-                            true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                            color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
-                          ),
+                    ),
+                    ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                      minVerticalPadding: 1,
+                      title: TextBox(
+                        controller: TextEditingController(),
+                        hint: "رقم الهاتف",
+                        icon: CupertinoIcons.phone_fill,
+                        keyboardType: TextInputType.phone,
+                        suffixIcon: Icon(
+                          true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                          color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
                         ),
                       ),
-                      ListTile(
-                        dense: true,
-                        minVerticalPadding: 0,
-                        title: ButtonClick(
-                          label: "إنشاء حساب",
-                          textColor: AppTheme.whiteTextColor,
-                          backColor: AppTheme.mainColor,
-                          onPressed: () => Get.offAll(() => HomeScreen()),
-                        ),
+                    ),
+                    ListTile(
+                      dense: true,
+                      minVerticalPadding: 0,
+                      title: ButtonClick(
+                        label: "إنشاء حساب",
+                        textColor: AppTheme.whiteTextColor,
+                        backColor: AppTheme.mainColor,
+                        onPressed: () => Get.offAll(() => HomeScreen()),
                       ),
-                      ListTile(
-                        dense: true,
-                        onTap: () => Get.off(() => LoginScreen()),
-                        title: LabelText(
-                          label: "عندي حساب بالفعل",
-                          color: AppTheme.blackTextColor.withOpacity(.75),
-                        ),
+                    ),
+                    ListTile(
+                      dense: true,
+                      onTap: () => Get.off(() => LoginScreen()),
+                      title: LabelText(
+                        label: "عندي حساب بالفعل",
+                        color: AppTheme.blackTextColor.withOpacity(.75),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],

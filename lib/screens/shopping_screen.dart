@@ -34,6 +34,7 @@ class ShoppingScreen extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
+        shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         padding: EdgeInsets.all(5),

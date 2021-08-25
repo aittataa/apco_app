@@ -43,6 +43,7 @@ class MealsScreen extends StatelessWidget {
           ),
           Expanded(
             child: GridView.builder(
+              shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),

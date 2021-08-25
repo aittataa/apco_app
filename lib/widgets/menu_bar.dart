@@ -19,19 +19,20 @@ class MenuBar extends StatelessWidget {
       subtitle: SizedBox(
         height: 250,
         child: GridView.builder(
+          shrinkWrap: true,
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           padding: EdgeInsets.all(10),
           gridDelegate: AppConstant.gridDelegate(childAspectRatio: 1.5, spacing: 10),
           itemCount: AppConstant.menuList.length,
-          itemBuilder: (context, index) {
-            Categories category = AppConstant.menuList[index];
+          itemBuilder: (context, i) {
+            Categories category = AppConstant.menuList[i];
             return MenuShape(
               category: category,
               onTap: () {
                 Get.to(
                   () => MealsScreen(
-                    index: index,
+                    index: i,
                     category: category,
                   ),
                 );

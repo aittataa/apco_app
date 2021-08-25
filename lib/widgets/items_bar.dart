@@ -6,36 +6,40 @@ import 'package:flutter/material.dart';
 
 class ItemsBar extends StatelessWidget {
   final int index;
-  final onTap;
+  final bool state;
+  final dynamic onTap;
+  final dynamic onPageChanged;
   const ItemsBar({
     required this.index,
+    this.state = false,
     this.onTap,
+    this.onPageChanged,
   });
 
   @override
   Widget build(BuildContext context) {
+    final PageController controller = PageController(
+      initialPage: index,
+      viewportFraction: .3,
+    );
     return SizedBox(
       height: 50,
       child: PageView.builder(
+        onPageChanged: onPageChanged,
         scrollDirection: Axis.horizontal,
-        controller: PageController(
-          initialPage: index,
-          viewportFraction: .3,
-        ),
+        controller: controller,
         physics: BouncingScrollPhysics(),
         itemCount: AppConstant.menuList.length,
         itemBuilder: (context, i) {
           bool state = index == i;
           Categories category = AppConstant.menuList[i];
           return GestureDetector(
-            onTap: () {
-              (context as Element).markNeedsBuild();
-            },
+            onTap: () => {controller.animateToPage(i, duration: AppConstant.duration, curve: AppConstant.curve)},
             child: AnimatedContainer(
               duration: AppConstant.duration,
               curve: AppConstant.curve,
               alignment: Alignment.center,
-              margin: EdgeInsets.symmetric(vertical: 5),
+              margin: EdgeInsets.all(5),
               padding: EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                 color: state ? AppTheme.lightMainColor : Colors.transparent,

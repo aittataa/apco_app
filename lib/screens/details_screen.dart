@@ -68,8 +68,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
       body: PageView.builder(
         controller: PageController(initialPage: pageIndex),
         itemCount: category.meals.length,
-        itemBuilder: (context, index) {
-          Meal meal = category.meals[index];
+        itemBuilder: (context, i) {
+          Meal meal = category.meals[i];
           return Column(
             children: [
               Expanded(
@@ -133,12 +133,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     height: 100,
                     child: GridView.builder(
                       reverse: true,
+                      shrinkWrap: true,
                       physics: BouncingScrollPhysics(),
                       padding: EdgeInsets.all(10),
                       scrollDirection: Axis.horizontal,
                       gridDelegate: AppConstant.gridDelegate(childAspectRatio: 1.25, spacing: 5),
                       itemCount: meal.rate.floor(),
-                      itemBuilder: (context, index) {
+                      itemBuilder: (context, i) {
                         return Container(
                           decoration: BoxDecoration(
                             color: AppTheme.whiteBackColor,
