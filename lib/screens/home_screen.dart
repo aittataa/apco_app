@@ -4,10 +4,10 @@ import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/floating_button.dart';
-import 'package:apco_app/widgets/items_bar.dart';
+import 'package:apco_app/widgets/function_button.dart';
+import 'package:apco_app/widgets/label_text.dart';
 import 'package:apco_app/widgets/meals_bar.dart';
 import 'package:apco_app/widgets/menu_bar.dart';
-import 'package:apco_app/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,44 +34,31 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Get.to(() => ShoppingScreen()),
+          padding: EdgeInsets.zero,
+          splashColor: AppTheme.transparentColor,
+          highlightColor: AppTheme.transparentColor,
           icon: Icon(
             CupertinoIcons.cart_fill,
             color: AppTheme.mainColor,
-            size: 27,
           ),
         ),
         centerTitle: true,
-        title: Text(
-          "${AppMessages.appTitle}",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(.75),
-            fontWeight: FontWeight.w900,
-          ),
+        title: LabelText(
+          label: "${AppMessages.appTitle}",
+          color: AppTheme.blackTextColor.withOpacity(.75),
         ),
         actions: [
-          Container(
-            margin: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: AppTheme.lightMainColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: IconButton(
-              onPressed: () => Get.to(() => FavoriteScreen()),
-              icon: Icon(
-                CupertinoIcons.heart_fill,
-                color: AppTheme.whiteIconColor,
-              ),
-            ),
+          FunctionButton(
+            icon: CupertinoIcons.heart_fill,
+            onPressed: () => Get.to(() => FavoriteScreen()),
           ),
         ],
       ),
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
-          SearchBar(),
-          ItemsBar(index: 0),
+          // SearchBar(),
+          // ItemsBar(index: 1),
           MealsBar(
             index: 0,
             category: AppConstant.menuList[0],

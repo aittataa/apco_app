@@ -10,8 +10,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class MealsBar extends StatelessWidget {
-  final Categories category;
   final int index;
+  final Categories category;
   const MealsBar({required this.index, required this.category});
   @override
   Widget build(BuildContext context) {
@@ -19,13 +19,17 @@ class MealsBar extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       title: TitleBar(
         title: "${category.label}",
-        onTap: () {
-          //AppConstant.itemIndex = index;
-          Get.to(() => MealsScreen(index: index, category: category));
+        onTap: () => {
+          Get.to(
+            () => MealsScreen(
+              index: index,
+              category: category,
+            ),
+          ),
         },
       ),
-      subtitle: Container(
-        height: 230,
+      subtitle: SizedBox(
+        height: 200,
         child: PageView.builder(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
@@ -35,7 +39,12 @@ class MealsBar extends StatelessWidget {
             return MealShape(
               meal: meal,
               state: true,
-              onTap: () => Get.to(() => DetailsScreen(index: i, category: category)),
+              onTap: () => Get.to(
+                () => DetailsScreen(
+                  index: i,
+                  category: category,
+                ),
+              ),
             );
           },
         ),

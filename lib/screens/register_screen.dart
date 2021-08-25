@@ -37,7 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               AnimatedContainer(
                 duration: AppConstant.duration,
                 curve: AppConstant.curve,
-                padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+                padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
                   color: AppTheme.backColor,
                   boxShadow: [AppConstant.boxShadow],
@@ -52,7 +52,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ListTile(
                         dense: true,
                         contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1.5,
+                        minVerticalPadding: 1,
                         title: TextBox(
                           controller: TextEditingController(),
                           hint: "الاسم بالكامل",
@@ -67,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ListTile(
                         dense: true,
                         contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1.5,
+                        minVerticalPadding: 1,
                         title: TextBox(
                           controller: TextEditingController(),
                           hint: "البريد الإلكتروني",
@@ -82,7 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ListTile(
                         dense: true,
                         contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1.5,
+                        minVerticalPadding: 1,
                         title: TextBox(
                           controller: TextEditingController(),
                           hint: "كلمة المرور",
@@ -98,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ListTile(
                         dense: true,
                         contentPadding: EdgeInsets.zero,
-                        minVerticalPadding: 1.5,
+                        minVerticalPadding: 1,
                         title: TextBox(
                           controller: TextEditingController(),
                           hint: "رقم الهاتف",
@@ -111,6 +111,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                       ListTile(
+                        dense: true,
+                        minVerticalPadding: 0,
                         title: ButtonClick(
                           label: "إنشاء حساب",
                           textColor: AppTheme.whiteTextColor,
@@ -119,6 +121,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                       ListTile(
+                        dense: true,
                         onTap: () => Get.off(() => LoginScreen()),
                         title: LabelText(
                           label: "عندي حساب بالفعل",

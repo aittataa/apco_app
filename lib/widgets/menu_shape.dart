@@ -26,7 +26,7 @@ class MenuShape extends StatelessWidget {
               child: Container(
                 margin: EdgeInsets.all(1),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(25),
                   image: DecorationImage(
                     image: CachedNetworkImageProvider("${category.picture}"),
                     fit: BoxFit.cover,
@@ -35,6 +35,7 @@ class MenuShape extends StatelessWidget {
               ),
             ),
             ListTile(
+              dense: true,
               title: LabelText(
                 label: "${category.label}",
                 color: AppTheme.blackTextColor,
@@ -42,27 +43,20 @@ class MenuShape extends StatelessWidget {
               subtitle: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "${category.time} min.",
-                    style: TextStyle(
-                      color: AppTheme.blackTextColor.withOpacity(.5),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 13,
-                    ),
+                  LabelText(
+                    label: "${category.time} min.",
+                    color: AppTheme.blackTextColor.withOpacity(.5),
                   ),
                   SizedBox(width: 10),
                   Icon(
                     Icons.star,
-                    size: 16,
+                    size: 15,
                     color: AppTheme.lightMainColor,
                   ),
-                  Text(
-                    " ${category.rate.toStringAsFixed(1)}",
-                    style: TextStyle(
-                      color: AppTheme.blackTextColor.withOpacity(.5),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 13,
-                    ),
+                  SizedBox(width: 2),
+                  LabelText(
+                    label: "${category.rate.toStringAsFixed(1)}",
+                    color: AppTheme.blackTextColor.withOpacity(.5),
                   ),
                 ],
               ),

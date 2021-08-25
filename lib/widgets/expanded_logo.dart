@@ -9,7 +9,7 @@ class ExpandedLogo extends StatelessWidget {
     return Expanded(
       flex: flex,
       child: Container(
-        margin: const EdgeInsets.all(20),
+        margin: const EdgeInsets.all(5),
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           shape: BoxShape.circle,

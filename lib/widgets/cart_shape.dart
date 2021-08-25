@@ -19,6 +19,7 @@ class CartShape extends StatelessWidget {
         boxShadow: [AppConstant.boxShadow],
       ),
       child: ListTile(
+        dense: true,
         contentPadding: EdgeInsets.zero.copyWith(left: 10, right: 10),
         trailing: CircleAvatar(
           radius: 25,
@@ -26,46 +27,37 @@ class CartShape extends StatelessWidget {
         ),
         title: LabelText(
           label: "${meal.label}",
-          color: AppTheme.blackTextColor,
+          color: AppTheme.blackTextColor.withOpacity(.75),
           textAlign: TextAlign.end,
         ),
         subtitle: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Expanded(
-              child: Text(
-                " ${meal.time.toStringAsFixed(2)} DH",
-                style: TextStyle(
-                  color: AppTheme.blackTextColor.withOpacity(.75),
-                  fontWeight: FontWeight.w900,
-                ),
+              child: LabelText(
+                label: "${meal.time.toStringAsFixed(2)} DH",
+                color: AppTheme.blackTextColor.withOpacity(.75),
+                textAlign: TextAlign.start,
               ),
             ),
-            Text(
-              "${meal.time} min.",
-              style: TextStyle(
-                color: AppTheme.blackTextColor.withOpacity(.5),
-                fontWeight: FontWeight.bold,
-              ),
+            LabelText(
+              label: "${meal.time} min.",
+              color: AppTheme.blackTextColor.withOpacity(.5),
             ),
             SizedBox(width: 10),
             Icon(
               Icons.star,
-              size: 16,
+              size: 15,
               color: AppTheme.lightMainColor,
             ),
-            Text(
-              " ${meal.rate.toStringAsFixed(1)}",
-              style: TextStyle(
-                color: AppTheme.blackTextColor.withOpacity(.5),
-                fontWeight: FontWeight.bold,
-              ),
+            SizedBox(width: 2),
+            LabelText(
+              label: "${meal.rate.toStringAsFixed(1)}",
+              color: AppTheme.blackTextColor.withOpacity(.5),
             ),
           ],
         ),
         leading: Container(
-          width: 50,
-          height: 50,
           decoration: BoxDecoration(
             color: AppTheme.lightMainColor,
             shape: BoxShape.rectangle,
@@ -73,6 +65,9 @@ class CartShape extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: null,
+            padding: EdgeInsets.zero,
+            splashColor: AppTheme.transparentColor,
+            highlightColor: AppTheme.transparentColor,
             icon: Icon(
               CupertinoIcons.delete_solid,
               color: AppTheme.whiteIconColor,

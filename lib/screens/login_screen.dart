@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
               AnimatedContainer(
                 duration: AppConstant.duration,
                 curve: AppConstant.curve,
-                padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+                padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(
                   color: AppTheme.backColor,
                   boxShadow: [AppConstant.boxShadow],
@@ -53,8 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ListTile(
                       dense: true,
                       contentPadding: EdgeInsets.zero,
-                      minVerticalPadding: 1.5,
+                      minVerticalPadding: 1,
                       title: TextBox(
+                        onChanged: (value) {},
                         controller: TextEditingController(),
                         hint: "البريد الإلكتروني",
                         icon: CupertinoIcons.mail_solid,
@@ -68,11 +69,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ListTile(
                       dense: true,
                       contentPadding: EdgeInsets.zero,
-                      minVerticalPadding: 1.5,
+                      minVerticalPadding: 1,
                       title: TextBox(
-                        onChanged: (value) {
-                          print(value);
-                        },
+                        onChanged: (value) {},
                         controller: TextEditingController(),
                         hint: "كلمة المرور",
                         icon: CupertinoIcons.lock_shield_fill,
@@ -85,6 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     ListTile(
+                      dense: true,
                       title: LabelText(
                         label: "هل نسيت كلمة السر؟",
                         color: AppTheme.blackTextColor.withOpacity(.75),
@@ -92,22 +92,25 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     ListTile(
+                      dense: true,
+                      minVerticalPadding: 0,
                       title: ButtonClick(
+                        onPressed: () => Get.offAll(() => HomeScreen()),
                         label: "تسجيل الدخول",
                         textColor: AppTheme.whiteTextColor,
                         backColor: AppTheme.mainColor,
-                        onPressed: () => Get.offAll(() => HomeScreen()),
                       ),
                     ),
                     ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      minVerticalPadding: 1.5,
+                      dense: true,
+                      contentPadding: const EdgeInsets.all(5),
+                      minVerticalPadding: 1,
                       title: LabelText(
                         label: "قم بالتسجيل عبر",
                         color: AppTheme.blackTextColor.withOpacity(.75),
                       ),
                       subtitle: Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -121,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                             ),
-                            Expanded(child: SizedBox(width: 1)),
+                            Expanded(child: const SizedBox(width: 1)),
                             Expanded(
                               flex: 10,
                               child: Align(
@@ -136,6 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     ListTile(
+                      dense: true,
                       onTap: () => Get.off(() => RegisterScreen()),
                       title: LabelText(
                         label: "انشاء حساب جديد",

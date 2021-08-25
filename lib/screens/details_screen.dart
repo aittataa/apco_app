@@ -20,6 +20,8 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+  int pageIndex = 0;
+  late Categories category;
   @override
   void initState() {
     super.initState();
@@ -27,8 +29,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     category = widget.category;
   }
 
-  int pageIndex = 0;
-  late Categories category;
+  int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -37,16 +38,16 @@ class _DetailsScreenState extends State<DetailsScreen> {
         elevation: 0,
         leading: BackIcon(),
         centerTitle: true,
-        title: Text(
-          "${category.label}",
-          style: TextStyle(
-            color: AppTheme.mainColor,
-            fontWeight: FontWeight.w900,
-          ),
+        title: LabelText(
+          label: "${category.label}",
+          color: AppTheme.mainColor,
         ),
         actions: [
           IconButton(
             onPressed: () => Get.to(() => FavoriteScreen()),
+            padding: EdgeInsets.zero,
+            splashColor: AppTheme.transparentColor,
+            highlightColor: AppTheme.transparentColor,
             icon: Icon(
               CupertinoIcons.heart_fill,
               color: AppTheme.mainColor,
@@ -54,6 +55,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ),
           IconButton(
             onPressed: () => Get.to(() => ShoppingScreen()),
+            padding: EdgeInsets.zero,
+            splashColor: AppTheme.transparentColor,
+            highlightColor: AppTheme.transparentColor,
             icon: Icon(
               CupertinoIcons.cart_fill,
               color: AppTheme.mainColor,
@@ -70,7 +74,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+                  margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     boxShadow: [AppConstant.boxShadow],
@@ -84,6 +88,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: ListTile(
+                  dense: true,
+                  contentPadding: EdgeInsets.zero,
                   title: LabelText(
                     label: "${meal.label}",
                     color: AppTheme.blackTextColor,
@@ -92,38 +98,27 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "${meal.time} min.",
-                        style: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(.5),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
+                      LabelText(
+                        label: "${meal.time} min.",
+                        color: AppTheme.blackTextColor.withOpacity(.5),
                       ),
                       SizedBox(width: 10),
                       Icon(
                         Icons.star,
-                        size: 16,
+                        size: 15,
                         color: AppTheme.lightMainColor,
                       ),
-                      Text(
-                        " ${meal.rate.toStringAsFixed(1)}",
-                        style: TextStyle(
-                          color: AppTheme.blackTextColor.withOpacity(.5),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
+                      SizedBox(width: 2),
+                      LabelText(
+                        label: "${meal.rate.toStringAsFixed(1)}",
+                        color: AppTheme.blackTextColor.withOpacity(.5),
                       ),
                     ],
                   ),
-                  leading: Text(
-                    "${meal.time} DH",
+                  leading: LabelText(
+                    label: "${meal.time} DH",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+                    color: AppTheme.blackTextColor,
                   ),
                 ),
               ),
@@ -132,7 +127,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   contentPadding: EdgeInsets.zero,
                   title: LabelText(
                     label: "المقادير",
-                    color: AppTheme.blackTextColor,
+                    color: AppTheme.blackTextColor.withOpacity(.75),
                   ),
                   subtitle: SizedBox(
                     height: 100,
@@ -141,7 +136,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       physics: BouncingScrollPhysics(),
                       padding: EdgeInsets.all(10),
                       scrollDirection: Axis.horizontal,
-                      gridDelegate: AppConstant.gridDelegate(childAspectRatio: 1.25),
+                      gridDelegate: AppConstant.gridDelegate(childAspectRatio: 1.25, spacing: 5),
                       itemCount: meal.rate.floor(),
                       itemBuilder: (context, index) {
                         return Container(
@@ -153,9 +148,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           child: Column(
                             children: [
                               Expanded(
-                                flex: 2,
                                 child: Container(
-                                  margin: EdgeInsets.all(1),
+                                  margin: EdgeInsets.all(.5),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     image: DecorationImage(
@@ -167,7 +161,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               ),
                               LabelText(
                                 label: "${meal.label}",
-                                textAlign: TextAlign.center,
                                 color: AppTheme.blackTextColor.withOpacity(.75),
                               ),
                             ],
@@ -178,21 +171,27 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                decoration: BoxDecoration(
+                  color: AppTheme.lightMainColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: ListTile(
-                  tileColor: AppTheme.lightMainColor,
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                  dense: true,
+                  contentPadding: const EdgeInsets.all(5),
+                  minVerticalPadding: 0,
+                  horizontalTitleGap: 10,
                   leading: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.white, width: 1.5),
+                      border: Border.all(color: AppTheme.whiteBackColor, width: 1.5),
                     ),
                     child: IconButton(
-                      onPressed: null,
+                      onPressed: () => Get.to(() => FavoriteScreen()),
+                      padding: EdgeInsets.zero,
+                      splashColor: AppTheme.transparentColor,
+                      highlightColor: AppTheme.transparentColor,
                       icon: Icon(
                         CupertinoIcons.heart,
                         color: AppTheme.whiteIconColor,
@@ -203,29 +202,33 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     decoration: BoxDecoration(
                       color: AppTheme.whiteBackColor,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: AppTheme.mainColor, width: 1),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         IconButton(
-                          onPressed: null,
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
+                          onPressed: () {
+                            setState(() => {quantity++});
+                          },
+                          padding: EdgeInsets.zero,
+                          splashColor: AppTheme.transparentColor,
+                          highlightColor: AppTheme.transparentColor,
                           icon: Icon(
                             CupertinoIcons.plus,
                             color: AppTheme.blackIconColor.withOpacity(.75),
                           ),
                         ),
                         LabelText(
-                          label: "0${meal.rate.floor()}",
-                          textAlign: TextAlign.center,
+                          label: quantity < 10 ? "0$quantity" : "$quantity",
                           color: AppTheme.blackTextColor.withOpacity(.75),
                         ),
                         IconButton(
-                          onPressed: null,
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
+                          onPressed: () {
+                            setState(() => {if (quantity != 1) quantity--});
+                          },
+                          padding: EdgeInsets.zero,
+                          splashColor: AppTheme.transparentColor,
+                          highlightColor: AppTheme.transparentColor,
                           icon: Icon(
                             CupertinoIcons.minus,
                             color: AppTheme.blackIconColor.withOpacity(.75),
@@ -237,10 +240,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   trailing: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.white, width: 1.5),
+                      border: Border.all(color: AppTheme.whiteBackColor, width: 1.5),
                     ),
                     child: IconButton(
-                      onPressed: null,
+                      onPressed: () => Get.to(() => ShoppingScreen()),
+                      padding: EdgeInsets.zero,
+                      splashColor: AppTheme.transparentColor,
+                      highlightColor: AppTheme.transparentColor,
                       icon: Icon(
                         CupertinoIcons.cart_fill,
                         color: AppTheme.whiteIconColor,

@@ -1,5 +1,3 @@
-import 'package:apco_app/constant/app_constant.dart';
-import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:flutter/material.dart';
 
@@ -22,15 +20,13 @@ class ButtonClick extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
-          alignment: Alignment.center,
-          animationDuration: AppConstant.duration,
+          elevation: 1,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+          primary: backColor,
           backgroundColor: backColor,
-          primary: AppTheme.whiteBackColor,
         ),
         child: LabelText(
           label: "$label",
-          textAlign: TextAlign.center,
           color: textColor,
         ),
       ),

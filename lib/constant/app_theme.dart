@@ -6,6 +6,7 @@ class AppTheme {
   static const Color backColor = Color(0xFFF0F0F0);
   static const Color whiteBackColor = Color(0xFFFFFFFF);
   static const Color blackBackColor = Color(0xFF000000);
+  static const Color cardBgColor = Color(4279977083);
 
   /// TODO : Transparent Color
   static const Color transparentColor = Color(0x00000000);

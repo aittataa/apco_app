@@ -1,23 +1,25 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
+import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MealShape extends StatelessWidget {
   final Meal meal;
   final bool state;
   final dynamic onTap;
-  const MealShape({required this.meal, required this.state, this.onTap});
+  const MealShape({required this.meal, this.state = false, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: AppTheme.whiteBackColor,
           borderRadius: BorderRadius.circular(25),
@@ -27,20 +29,26 @@ class MealShape extends StatelessWidget {
           children: [
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        state ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-                        color: state ? AppTheme.redIconColor : AppTheme.blackIconColor,
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        onPressed: () {},
+                        padding: EdgeInsets.zero,
+                        splashColor: AppTheme.transparentColor,
+                        highlightColor: AppTheme.transparentColor,
+                        icon: Icon(
+                          state ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
+                          color: state ? AppTheme.redIconColor : AppTheme.blackIconColor,
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     child: ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.zero.copyWith(right: 10),
                       title: LabelText(
                         label: "${meal.label}",
                         color: AppTheme.blackTextColor,
@@ -49,34 +57,28 @@ class MealShape extends StatelessWidget {
                       subtitle: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            "${meal.time} min.",
-                            style: TextStyle(
-                              color: AppTheme.blackTextColor.withOpacity(.5),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
-                            ),
+                          LabelText(
+                            label: "${meal.time} min.",
+                            color: AppTheme.blackTextColor.withOpacity(.5),
                           ),
-                          SizedBox(width: 10),
+                          SizedBox(width: 8),
                           Icon(
                             Icons.star,
-                            size: 16,
                             color: AppTheme.lightMainColor,
+                            size: 15,
                           ),
-                          Text(
-                            " ${meal.rate.toStringAsFixed(1)}",
-                            style: TextStyle(
-                              color: AppTheme.blackTextColor.withOpacity(.5),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
-                            ),
+                          SizedBox(width: 2),
+                          LabelText(
+                            label: "${meal.rate.toStringAsFixed(1)}",
+                            color: AppTheme.blackTextColor.withOpacity(.5),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(
+                  Expanded(
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Expanded(
                           child: Container(
@@ -88,7 +90,10 @@ class MealShape extends StatelessWidget {
                               ),
                             ),
                             child: IconButton(
-                              onPressed: null,
+                              onPressed: () => Get.to(() => ShoppingScreen()),
+                              padding: EdgeInsets.zero,
+                              splashColor: AppTheme.transparentColor,
+                              highlightColor: AppTheme.transparentColor,
                               icon: Icon(
                                 CupertinoIcons.cart_fill,
                                 color: AppTheme.whiteIconColor,
@@ -97,7 +102,7 @@ class MealShape extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Container(
+                          child: Padding(
                             padding: EdgeInsets.all(10),
                             child: LabelText(
                               label: "${meal.time} DH",
@@ -113,7 +118,7 @@ class MealShape extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                margin: EdgeInsets.all(2),
+                margin: EdgeInsets.all(1),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   image: DecorationImage(

@@ -11,15 +11,12 @@ class SearchBar extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: ListTile(
         contentPadding: EdgeInsets.zero,
-        title: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: Text(
-            "${AppMessages.GREETING_SUBTITLE}",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: AppTheme.blackTextColor.withOpacity(.75),
-              fontWeight: FontWeight.bold,
-            ),
+        title: Text(
+          "${AppMessages.GREETING_SUBTITLE}",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: AppTheme.blackTextColor.withOpacity(.75),
+            fontWeight: FontWeight.bold,
           ),
         ),
         subtitle: SearchBox(),
@@ -32,6 +29,7 @@ class SearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 50,
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: AppTheme.whiteBackColor,
@@ -44,6 +42,8 @@ class SearchBox extends StatelessWidget {
           color: AppTheme.blackTextColor.withOpacity(.75),
           fontWeight: FontWeight.w900,
         ),
+        textInputAction: TextInputAction.done,
+        keyboardType: TextInputType.text,
         decoration: InputDecoration(
           border: InputBorder.none,
           icon: Icon(
@@ -52,7 +52,7 @@ class SearchBox extends StatelessWidget {
           ),
           hintText: "Search...",
           hintStyle: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(.25),
+            color: AppTheme.blackTextColor.withOpacity(.5),
             fontWeight: FontWeight.bold,
           ),
         ),

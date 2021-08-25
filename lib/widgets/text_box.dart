@@ -1,3 +1,4 @@
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class TextBox extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           obscureText: obscureText,
-          obscuringCharacter: "●",
+          obscuringCharacter: "${AppMessages.obscuringCharacter}",
           decoration: InputDecoration(
             contentPadding: EdgeInsets.zero,
             border: InputBorder.none,

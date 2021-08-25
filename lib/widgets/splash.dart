@@ -3,7 +3,6 @@ import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/screens/login_screen.dart';
 import 'package:apco_app/widgets/bounce_point.dart';
-import 'package:apco_app/widgets/expanded_logo.dart';
 import 'package:flutter/material.dart';
 
 class Splash extends StatelessWidget {
@@ -11,12 +10,7 @@ class Splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       nextScreen: LoginScreen(),
-      splash: Column(
-        children: [
-          ExpandedLogo(flex: 2),
-          Expanded(child: BouncePoint()),
-        ],
-      ),
+      splash: BouncePoint(),
       curve: AppConstant.curve,
       backgroundColor: AppTheme.backColor,
       splashTransition: SplashTransition.fadeTransition,

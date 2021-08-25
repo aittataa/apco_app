@@ -7,6 +7,9 @@ class BackIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () => Navigator.pop(context),
+      padding: EdgeInsets.zero,
+      splashColor: AppTheme.transparentColor,
+      highlightColor: AppTheme.transparentColor,
       icon: Icon(
         CupertinoIcons.chevron_back,
         color: AppTheme.blackIconColor,

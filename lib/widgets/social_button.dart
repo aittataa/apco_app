@@ -16,7 +16,7 @@ class SocialButton extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        elevation: 2,
+        elevation: 3,
         backgroundColor: AppTheme.whiteBackColor,
         shape: CircleBorder(),
         padding: EdgeInsets.all(10),
@@ -24,8 +24,8 @@ class SocialButton extends StatelessWidget {
       child: Image.asset(
         "$image",
         color: color,
-        width: 30,
-        height: 30,
+        width: 25,
+        height: 25,
       ),
     );
   }

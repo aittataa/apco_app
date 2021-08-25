@@ -5,6 +5,8 @@ import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/meals_screen.dart';
 import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/floating_button.dart';
+import 'package:apco_app/widgets/function_button.dart';
+import 'package:apco_app/widgets/label_text.dart';
 import 'package:apco_app/widgets/menu_shape.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,29 +20,16 @@ class CategoriesScreen extends StatelessWidget {
         elevation: 0,
         leading: BackIcon(),
         centerTitle: true,
-        title: Text(
-          "القائمة",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(.75),
-            fontWeight: FontWeight.w900,
-          ),
+        title: LabelText(
+          label: "القائمة",
+          color: AppTheme.blackTextColor.withOpacity(.75),
         ),
         actions: [
-          Container(
-            margin: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: AppTheme.lightMainColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: IconButton(
-              onPressed: () => Get.to(() => FavoriteScreen()),
-              icon: Icon(
-                CupertinoIcons.heart_fill,
-                color: AppTheme.whiteIconColor,
-              ),
-            ),
+          FunctionButton(
+            icon: CupertinoIcons.heart_fill,
+            onPressed: () => {
+              Get.to(() => FavoriteScreen()),
+            },
           ),
         ],
       ),
@@ -48,18 +37,19 @@ class CategoriesScreen extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         padding: EdgeInsets.all(10),
+        shrinkWrap: true,
         gridDelegate: AppConstant.gridDelegate(
           crossAxisCount: 2,
           childAspectRatio: 0.75,
+          spacing: 10,
         ),
         itemCount: AppConstant.menuList.length,
         itemBuilder: (context, index) {
           Categories category = AppConstant.menuList[index];
           return MenuShape(
             category: category,
-            onTap: () {
-              //AppConstant.itemIndex = index;
-              Get.to(() => MealsScreen(index: index, category: category));
+            onTap: () => {
+              Get.to(() => MealsScreen(index: index, category: category)),
             },
           );
         },

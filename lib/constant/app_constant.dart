@@ -5,7 +5,6 @@ import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppConstant {
@@ -15,22 +14,22 @@ class AppConstant {
   static final double screenWidth = Get.size.width;
   static final double screenHeight = Get.size.height;
 
-  static setMeal(Meal meal) async {
-    var database = await Hive.openBox("${meal.id}");
-    database.add(meal);
-  }
+  // static setMeal(Meal meal) async {
+  //   var database = await Hive.openBox("${meal.id}");
+  //   database.add(meal);
+  // }
 
-  static getMeal(Meal meal) async {
-    var database = await Hive.openBox("${meal.id}");
-    return database.getAt(0);
-  }
+  // static getMeal(Meal meal) async {
+  //   var database = await Hive.openBox("${meal.id}");
+  //   return database.getAt(0);
+  // }
 
-  static gridDelegate({int crossAxisCount = 1, double childAspectRatio = 1}) {
+  static gridDelegate({int crossAxisCount = 1, double childAspectRatio = 1, double spacing = 0}) {
     return SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: crossAxisCount,
       childAspectRatio: childAspectRatio,
-      mainAxisSpacing: 10,
-      crossAxisSpacing: 10,
+      mainAxisSpacing: spacing,
+      crossAxisSpacing: spacing,
     );
   }
 

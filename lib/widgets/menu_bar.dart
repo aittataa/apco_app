@@ -22,18 +22,19 @@ class MenuBar extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           padding: EdgeInsets.all(10),
-          gridDelegate: AppConstant.gridDelegate(
-            crossAxisCount: 1,
-            childAspectRatio: 1.5,
-          ),
+          gridDelegate: AppConstant.gridDelegate(childAspectRatio: 1.5, spacing: 10),
           itemCount: AppConstant.menuList.length,
           itemBuilder: (context, index) {
             Categories category = AppConstant.menuList[index];
             return MenuShape(
               category: category,
               onTap: () {
-                // AppConstant.itemIndex = index;
-                Get.to(() => MealsScreen(index: index, category: category));
+                Get.to(
+                  () => MealsScreen(
+                    index: index,
+                    category: category,
+                  ),
+                );
               },
             );
           },

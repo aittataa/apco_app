@@ -7,6 +7,7 @@ import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/payment_screen.dart';
 import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/cart_shape.dart';
+import 'package:apco_app/widgets/function_button.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,35 +22,21 @@ class ShoppingScreen extends StatelessWidget {
         elevation: 0,
         leading: BackIcon(),
         centerTitle: true,
-        title: Text(
-          "طلباتي",
-          style: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(.75),
-            fontWeight: FontWeight.w900,
-          ),
+        title: LabelText(
+          label: "طلباتي",
+          color: AppTheme.blackTextColor.withOpacity(.75),
         ),
         actions: [
-          Container(
-            margin: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: AppTheme.lightMainColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: IconButton(
-              onPressed: () => Get.off(() => FavoriteScreen()),
-              icon: Icon(
-                CupertinoIcons.heart_fill,
-                color: AppTheme.whiteIconColor,
-              ),
-            ),
+          FunctionButton(
+            icon: CupertinoIcons.heart_fill,
+            onPressed: () => Get.off(() => FavoriteScreen()),
           ),
         ],
       ),
       body: ListView.builder(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(5),
         itemCount: AppConstant.menuList[0].meals.length,
         itemBuilder: (context, i) {
           Meal meal = AppConstant.menuList[0].meals[i];
@@ -57,10 +44,9 @@ class ShoppingScreen extends StatelessWidget {
         },
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
           color: AppTheme.lightMainColor,
-          boxShadow: [AppConstant.boxShadow],
           borderRadius: BorderRadius.circular(10),
         ),
         child: ListTile(
@@ -68,7 +54,7 @@ class ShoppingScreen extends StatelessWidget {
           title: Row(
             children: [
               LabelText(
-                label: "256 DH",
+                label: "250 DH",
                 color: AppTheme.whiteTextColor,
                 textAlign: TextAlign.end,
               ),
@@ -83,13 +69,15 @@ class ShoppingScreen extends StatelessWidget {
           ),
           leading: Container(
             margin: EdgeInsets.all(5),
-            height: double.infinity,
             decoration: BoxDecoration(
               color: AppTheme.backColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: IconButton(
               onPressed: () => Get.to(() => PaymentScreen()),
+              padding: EdgeInsets.zero,
+              splashColor: AppTheme.transparentColor,
+              highlightColor: AppTheme.transparentColor,
               icon: Icon(
                 CupertinoIcons.chevron_left_2,
                 color: AppTheme.mainColor,

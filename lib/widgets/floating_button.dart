@@ -12,6 +12,7 @@ class FloatingButton extends StatelessWidget {
       activeBackgroundColor: AppTheme.lightMainColor,
       foregroundColor: AppTheme.whiteIconColor,
       elevation: 1,
+      buttonSize: 50,
       overlayOpacity: 0.5,
       overlayColor: AppTheme.backColor,
       icon: CupertinoIcons.text_alignleft,
@@ -22,7 +23,7 @@ class FloatingButton extends StatelessWidget {
       animationSpeed: 250,
       children: [
         SpeedDialChild(
-          //onTap: () => {AppConstant.launchURL("tel:+212673377573")},
+          onTap: () {},
           child: Icon(CupertinoIcons.headphones),
           label: "Contact US",
           labelStyle: TextStyle(
@@ -33,7 +34,7 @@ class FloatingButton extends StatelessWidget {
           foregroundColor: AppTheme.lightMainColor,
         ),
         SpeedDialChild(
-          onTap: () => {AppConstant.launchURL("https:www.google.com")},
+          onTap: () => AppConstant.launchURL("https:www.google.com"),
           child: Icon(CupertinoIcons.chat_bubble_fill),
           label: "Text US",
           labelStyle: TextStyle(
@@ -44,7 +45,7 @@ class FloatingButton extends StatelessWidget {
           foregroundColor: AppTheme.lightMainColor,
         ),
         SpeedDialChild(
-          onTap: () => {},
+          onTap: () => AppConstant.launchURL("tel:+212673377573"),
           child: Icon(CupertinoIcons.phone_fill),
           label: "Call US",
           labelStyle: TextStyle(

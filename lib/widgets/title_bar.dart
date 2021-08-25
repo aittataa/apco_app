@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_theme.dart';
+import 'package:apco_app/widgets/label_text.dart';
 import 'package:flutter/material.dart';
 
 class TitleBar extends StatelessWidget {
@@ -13,7 +14,7 @@ class TitleBar extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           children: [
             Container(
@@ -28,13 +29,10 @@ class TitleBar extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Text(
-                "$title",
+              child: LabelText(
+                label: "$title",
+                color: AppTheme.blackTextColor.withOpacity(.75),
                 textAlign: TextAlign.right,
-                style: TextStyle(
-                  color: AppTheme.blackTextColor,
-                  fontWeight: FontWeight.w900,
-                ),
               ),
             ),
           ],
