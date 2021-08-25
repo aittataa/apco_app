@@ -86,15 +86,23 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+              SizedBox(
                 child: ListTile(
-                  dense: true,
-                  contentPadding: EdgeInsets.zero,
-                  title: LabelText(
-                    label: "${meal.label}",
-                    color: AppTheme.blackTextColor,
-                    textAlign: TextAlign.end,
+                  title: Row(
+                    children: [
+                      LabelText(
+                        label: "${meal.time} ${AppMessages.currencyUnit}",
+                        textAlign: TextAlign.center,
+                        color: AppTheme.blackTextColor,
+                      ),
+                      Expanded(
+                        child: LabelText(
+                          label: "${meal.label}",
+                          color: AppTheme.blackTextColor,
+                          textAlign: TextAlign.end,
+                        ),
+                      ),
+                    ],
                   ),
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -106,8 +114,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       SizedBox(width: 10),
                       Icon(
                         Icons.star,
-                        size: 15,
                         color: AppTheme.lightMainColor,
+                        size: 15,
                       ),
                       SizedBox(width: 2),
                       LabelText(
@@ -115,11 +123,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         color: AppTheme.blackTextColor.withOpacity(.5),
                       ),
                     ],
-                  ),
-                  leading: LabelText(
-                    label: "${meal.time} ${AppMessages.currencyUnit}",
-                    textAlign: TextAlign.center,
-                    color: AppTheme.blackTextColor,
                   ),
                 ),
               ),
@@ -136,9 +139,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       reverse: true,
                       shrinkWrap: true,
                       physics: BouncingScrollPhysics(),
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(5),
                       scrollDirection: Axis.horizontal,
-                      gridDelegate: AppConstant.gridDelegate(childAspectRatio: 1.25, spacing: 5),
+                      gridDelegate: AppConstant.gridDelegate(spacing: 5),
                       itemCount: meal.rate.floor(),
                       itemBuilder: (context, i) {
                         return Container(
@@ -151,7 +154,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             children: [
                               Expanded(
                                 child: Container(
-                                  margin: EdgeInsets.all(.5),
+                                  margin: const EdgeInsets.all(.5),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     image: DecorationImage(
@@ -161,9 +164,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   ),
                                 ),
                               ),
-                              LabelText(
-                                label: "${meal.label}",
-                                color: AppTheme.blackTextColor.withOpacity(.75),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 2.5),
+                                child: LabelText(
+                                  label: "${meal.label}",
+                                  color: AppTheme.blackTextColor,
+                                ),
                               ),
                             ],
                           ),

@@ -46,34 +46,34 @@ class _MealsScreenState extends State<MealsScreen> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          ItemsBar(
-            index: AppConstant.itemIndex,
-            onPageChanged: (index) {
-              setState(() {
-                AppConstant.itemIndex = index;
-                category = AppConstant.menuList[AppConstant.itemIndex];
-              });
-            },
-          ),
-          Expanded(
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),
-              itemCount: category.meals.length,
-              itemBuilder: (context, i) {
-                Meal meal = category.meals[i];
-                return MealShape(
-                  meal: meal,
-                  onTap: () => Get.to(() => DetailsScreen(index: i, category: category)),
-                );
+      body: ListTile(
+        contentPadding: EdgeInsets.zero,
+        minVerticalPadding: 0,
+        title: ItemsBar(
+          index: AppConstant.itemIndex,
+          onPageChanged: (index) {
+            setState(() {
+              AppConstant.itemIndex = index;
+              category = AppConstant.menuList[AppConstant.itemIndex];
+            });
+          },
+        ),
+        subtitle: GridView.builder(
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),
+          itemCount: category.meals.length,
+          itemBuilder: (context, i) {
+            Meal meal = category.meals[i];
+            return MealShape(
+              meal: meal,
+              onTap: () {
+                Get.to(() => DetailsScreen(index: i, category: category));
               },
-            ),
-          ),
-        ],
+            );
+          },
+        ),
       ),
     );
   }

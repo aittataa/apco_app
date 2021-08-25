@@ -102,8 +102,8 @@ class MealShape extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.all(10),
+                          child: Align(
+                            alignment: Alignment.center,
                             child: LabelText(
                               label: "${meal.time} ${AppMessages.currencyUnit}",
                               color: AppTheme.blackTextColor,
