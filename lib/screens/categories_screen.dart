@@ -26,8 +26,8 @@ class CategoriesScreen extends StatelessWidget {
         actions: [
           FunctionButton(
             icon: CupertinoIcons.heart_fill,
-            onPressed: () => {
-              Get.to(() => FavoriteScreen()),
+            onPressed: () {
+              Get.to(() => FavoriteScreen());
             },
           ),
         ],
@@ -47,8 +47,9 @@ class CategoriesScreen extends StatelessWidget {
           Categories category = AppConstant.menuList[i];
           return MenuShape(
             category: category,
-            onTap: () => {
-              Get.to(() => MealsScreen(index: i, category: category)),
+            onTap: () {
+              AppConstant.itemIndex = i;
+              Get.to(() => MealsScreen(category: category));
             },
           );
         },

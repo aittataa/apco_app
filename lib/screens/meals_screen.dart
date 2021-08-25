@@ -13,10 +13,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MealsScreen extends StatelessWidget {
-  final int index;
+class MealsScreen extends StatefulWidget {
   final Categories category;
-  const MealsScreen({Key? key, required this.index, required this.category});
+  const MealsScreen({required this.category});
+  @override
+  _MealsScreenState createState() => _MealsScreenState();
+}
+
+class _MealsScreenState extends State<MealsScreen> {
+  late Categories category;
+  @override
+  void initState() {
+    super.initState();
+    category = widget.category;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +49,13 @@ class MealsScreen extends StatelessWidget {
       body: Column(
         children: [
           ItemsBar(
-            index: index,
-            onTap: () {},
+            index: AppConstant.itemIndex,
+            onPageChanged: (index) {
+              setState(() {
+                AppConstant.itemIndex = index;
+                category = AppConstant.menuList[AppConstant.itemIndex];
+              });
+            },
           ),
           Expanded(
             child: GridView.builder(

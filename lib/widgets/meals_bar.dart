@@ -1,3 +1,4 @@
+import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/details_screen.dart';
@@ -19,13 +20,9 @@ class MealsBar extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       title: TitleBar(
         title: "${category.label}",
-        onTap: () => {
-          Get.to(
-            () => MealsScreen(
-              index: index,
-              category: category,
-            ),
-          ),
+        onTap: () {
+          AppConstant.itemIndex = index;
+          Get.to(() => MealsScreen(category: category));
         },
       ),
       subtitle: SizedBox(
@@ -39,12 +36,9 @@ class MealsBar extends StatelessWidget {
             return MealShape(
               meal: meal,
               state: true,
-              onTap: () => Get.to(
-                () => DetailsScreen(
-                  index: i,
-                  category: category,
-                ),
-              ),
+              onTap: () {
+                Get.to(() => DetailsScreen(index: i, category: category));
+              },
             );
           },
         ),

@@ -8,21 +8,12 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppConstant {
-  static int itemIndex = 0; //Random().nextInt(7);
+  static int itemIndex = 0;
   static const Duration duration = Duration(milliseconds: 1500);
+  static const Duration animatedDuration = Duration(milliseconds: 1000);
   static const Curve curve = Curves.linearToEaseOut;
   static final double screenWidth = Get.size.width;
   static final double screenHeight = Get.size.height;
-
-  // static setMeal(Meal meal) async {
-  //   var database = await Hive.openBox("${meal.id}");
-  //   database.add(meal);
-  // }
-
-  // static getMeal(Meal meal) async {
-  //   var database = await Hive.openBox("${meal.id}");
-  //   return database.getAt(0);
-  // }
 
   static gridDelegate({int crossAxisCount = 1, double childAspectRatio = 1, double spacing = 0}) {
     return SliverGridDelegateWithFixedCrossAxisCount(

@@ -28,15 +28,22 @@ class ItemsBar extends StatelessWidget {
         onPageChanged: onPageChanged,
         scrollDirection: Axis.horizontal,
         controller: controller,
+        pageSnapping: false,
         physics: BouncingScrollPhysics(),
         itemCount: AppConstant.menuList.length,
         itemBuilder: (context, i) {
           bool state = index == i;
           Categories category = AppConstant.menuList[i];
           return GestureDetector(
-            onTap: () => {controller.animateToPage(i, duration: AppConstant.duration, curve: AppConstant.curve)},
+            onTap: () {
+              controller.animateToPage(
+                i,
+                duration: AppConstant.animatedDuration,
+                curve: AppConstant.curve,
+              );
+            },
             child: AnimatedContainer(
-              duration: AppConstant.duration,
+              duration: AppConstant.animatedDuration,
               curve: AppConstant.curve,
               alignment: Alignment.center,
               margin: EdgeInsets.all(5),

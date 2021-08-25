@@ -29,8 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
     ));
   }
 
-  int pageIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,16 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           SearchBar(),
           ItemsBar(
-            index: pageIndex,
-            // onTap: (i) {
-            //print(i);
-            //setState(() {
-            //pageIndex = i;
-            //});
-            // },
+            index: AppConstant.itemIndex,
             onPageChanged: (index) {
               setState(() {
-                pageIndex = index;
+                AppConstant.itemIndex = index;
               });
             },
           ),

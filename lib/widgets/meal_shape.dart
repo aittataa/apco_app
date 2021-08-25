@@ -47,7 +47,6 @@ class MealShape extends StatelessWidget {
                   ),
                   SizedBox(
                     child: ListTile(
-                      dense: true,
                       contentPadding: EdgeInsets.zero.copyWith(right: 10),
                       title: LabelText(
                         label: "${meal.label}",
