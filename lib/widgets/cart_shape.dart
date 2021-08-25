@@ -3,7 +3,6 @@ import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/widgets/label_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +23,7 @@ class CartShape extends StatelessWidget {
         contentPadding: EdgeInsets.zero.copyWith(left: 10, right: 10),
         trailing: CircleAvatar(
           radius: 25,
-          backgroundImage: CachedNetworkImageProvider("${meal.picture}"),
+          backgroundImage: NetworkImage("${meal.picture}"),
         ),
         title: LabelText(
           label: "${meal.label}",

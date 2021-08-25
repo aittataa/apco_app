@@ -7,7 +7,6 @@ import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/label_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -80,7 +79,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     borderRadius: BorderRadius.circular(25),
                     boxShadow: [AppConstant.boxShadow],
                     image: DecorationImage(
-                      image: CachedNetworkImageProvider("${meal.picture}"),
+                      image: NetworkImage("${meal.picture}"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -158,7 +157,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     image: DecorationImage(
-                                      image: CachedNetworkImageProvider("${meal.picture}"),
+                                      image: NetworkImage("${meal.picture}"),
                                       fit: BoxFit.cover,
                                     ),
                                   ),

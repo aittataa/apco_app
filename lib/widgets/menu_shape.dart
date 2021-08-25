@@ -3,7 +3,6 @@ import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/widgets/label_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class MenuShape extends StatelessWidget {
@@ -29,7 +28,7 @@ class MenuShape extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   image: DecorationImage(
-                    image: CachedNetworkImageProvider("${category.picture}"),
+                    image: NetworkImage("${category.picture}"),
                     fit: BoxFit.cover,
                   ),
                 ),

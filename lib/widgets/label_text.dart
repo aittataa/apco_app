@@ -1,5 +1,5 @@
 import 'package:apco_app/constant/app_theme.dart';
-import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class LabelText extends StatelessWidget {
