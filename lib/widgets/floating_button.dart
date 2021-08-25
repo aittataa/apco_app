@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class FloatingButton extends StatelessWidget {
         SpeedDialChild(
           onTap: () {},
           child: Icon(CupertinoIcons.headphones),
-          label: "Contact US",
+          label: "${AppMessages.contactUs}",
           labelStyle: TextStyle(
             color: AppTheme.mainColor,
             fontWeight: FontWeight.bold,
@@ -34,9 +35,9 @@ class FloatingButton extends StatelessWidget {
           foregroundColor: AppTheme.lightMainColor,
         ),
         SpeedDialChild(
-          onTap: () => AppConstant.launchURL("https:www.google.com"),
+          onTap: () => AppConstant.launchURL("${AppMessages.textUsUrl}"),
           child: Icon(CupertinoIcons.chat_bubble_fill),
-          label: "Text US",
+          label: "${AppMessages.textUs}",
           labelStyle: TextStyle(
             color: AppTheme.mainColor,
             fontWeight: FontWeight.bold,
@@ -45,9 +46,9 @@ class FloatingButton extends StatelessWidget {
           foregroundColor: AppTheme.lightMainColor,
         ),
         SpeedDialChild(
-          onTap: () => AppConstant.launchURL("tel:+212673377573"),
+          onTap: () => AppConstant.launchURL("${AppMessages.callUsUrl}"),
           child: Icon(CupertinoIcons.phone_fill),
-          label: "Call US",
+          label: "${AppMessages.callUs}",
           labelStyle: TextStyle(
             color: AppTheme.mainColor,
             fontWeight: FontWeight.bold,

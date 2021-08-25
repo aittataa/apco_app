@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/widgets/label_text.dart';
@@ -44,7 +45,7 @@ class MenuShape extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   LabelText(
-                    label: "${category.time} min.",
+                    label: "${category.time} ${AppMessages.timeUnit}",
                     color: AppTheme.blackTextColor.withOpacity(.5),
                   ),
                   SizedBox(width: 10),

@@ -4,6 +4,7 @@ import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,6 +15,8 @@ class AppConstant {
   static const Curve curve = Curves.linearToEaseOut;
   static final double screenWidth = Get.size.width;
   static final double screenHeight = Get.size.height;
+
+  static final CreditCardModel cardModel = CreditCardModel("5500 0000 0000 0000", "07/24", "Mr. John Doe", "●●●●", false);
 
   static gridDelegate({int crossAxisCount = 1, double childAspectRatio = 1, double spacing = 0}) {
     return SliverGridDelegateWithFixedCrossAxisCount(

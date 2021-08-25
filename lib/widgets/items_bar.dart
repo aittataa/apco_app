@@ -36,11 +36,7 @@ class ItemsBar extends StatelessWidget {
           Categories category = AppConstant.menuList[i];
           return GestureDetector(
             onTap: () {
-              controller.animateToPage(
-                i,
-                duration: AppConstant.animatedDuration,
-                curve: AppConstant.curve,
-              );
+              controller.animateToPage(i, duration: AppConstant.animatedDuration, curve: AppConstant.curve);
             },
             child: AnimatedContainer(
               duration: AppConstant.animatedDuration,

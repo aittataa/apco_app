@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/shopping_screen.dart';
@@ -57,7 +58,7 @@ class MealShape extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           LabelText(
-                            label: "${meal.time} min.",
+                            label: "${meal.time} ${AppMessages.timeUnit}",
                             color: AppTheme.blackTextColor.withOpacity(.5),
                           ),
                           SizedBox(width: 8),
@@ -104,7 +105,7 @@ class MealShape extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.all(10),
                             child: LabelText(
-                              label: "${meal.time} DH",
+                              label: "${meal.time} ${AppMessages.currencyUnit}",
                               color: AppTheme.blackTextColor,
                             ),
                           ),

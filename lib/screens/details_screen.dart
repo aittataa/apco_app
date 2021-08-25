@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
@@ -99,7 +100,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       LabelText(
-                        label: "${meal.time} min.",
+                        label: "${meal.time} ${AppMessages.timeUnit}",
                         color: AppTheme.blackTextColor.withOpacity(.5),
                       ),
                       SizedBox(width: 10),
@@ -116,7 +117,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ],
                   ),
                   leading: LabelText(
-                    label: "${meal.time} DH",
+                    label: "${meal.time} ${AppMessages.currencyUnit}",
                     textAlign: TextAlign.center,
                     color: AppTheme.blackTextColor,
                   ),
@@ -126,7 +127,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,
                   title: LabelText(
-                    label: "المقادير",
+                    label: "${AppMessages.ingredient}",
                     color: AppTheme.blackTextColor.withOpacity(.75),
                   ),
                   subtitle: SizedBox(

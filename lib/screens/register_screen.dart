@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/screens/home_screen.dart';
 import 'package:apco_app/screens/login_screen.dart';
@@ -24,6 +25,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       statusBarIconBrightness: Brightness.light,
     ));
   }
+
+  final bool state = true;
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +57,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       minVerticalPadding: 1,
                       title: TextBox(
                         controller: TextEditingController(),
-                        hint: "الاسم بالكامل",
+                        hint: "${AppMessages.usernameHint}",
                         icon: CupertinoIcons.person_crop_circle,
                         keyboardType: TextInputType.name,
                         suffixIcon: Icon(
-                          true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                          color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                          state ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                          color: state ? AppTheme.lightMainColor : AppTheme.redIconColor,
                         ),
                       ),
                     ),
@@ -69,12 +72,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       minVerticalPadding: 1,
                       title: TextBox(
                         controller: TextEditingController(),
-                        hint: "البريد الإلكتروني",
+                        hint: "${AppMessages.emailHint}",
                         icon: CupertinoIcons.mail_solid,
                         keyboardType: TextInputType.emailAddress,
                         suffixIcon: Icon(
-                          true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                          color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                          state ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                          color: state ? AppTheme.lightMainColor : AppTheme.redIconColor,
                         ),
                       ),
                     ),
@@ -84,13 +87,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       minVerticalPadding: 1,
                       title: TextBox(
                         controller: TextEditingController(),
-                        hint: "كلمة المرور",
+                        hint: "${AppMessages.passwordHint}",
                         icon: CupertinoIcons.lock_shield_fill,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
                         suffixIcon: Icon(
                           Icons.remove_red_eye,
-                          color: true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
+                          color: state ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
                         ),
                       ),
                     ),
@@ -100,12 +103,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       minVerticalPadding: 1,
                       title: TextBox(
                         controller: TextEditingController(),
-                        hint: "رقم الهاتف",
+                        hint: "${AppMessages.phoneNumberHint}",
                         icon: CupertinoIcons.phone_fill,
                         keyboardType: TextInputType.phone,
                         suffixIcon: Icon(
-                          true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                          color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                          state ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                          color: state ? AppTheme.lightMainColor : AppTheme.redIconColor,
                         ),
                       ),
                     ),
@@ -113,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       dense: true,
                       minVerticalPadding: 0,
                       title: ButtonClick(
-                        label: "إنشاء حساب",
+                        label: "${AppMessages.registerTitle}",
                         textColor: AppTheme.whiteTextColor,
                         backColor: AppTheme.mainColor,
                         onPressed: () => Get.offAll(() => HomeScreen()),
@@ -123,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       dense: true,
                       onTap: () => Get.off(() => LoginScreen()),
                       title: LabelText(
-                        label: "عندي حساب بالفعل",
+                        label: "${AppMessages.haveAccount}",
                         color: AppTheme.blackTextColor.withOpacity(.75),
                       ),
                     ),

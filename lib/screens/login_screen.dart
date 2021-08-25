@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/screens/home_screen.dart';
 import 'package:apco_app/screens/register_screen.dart';
@@ -26,6 +27,8 @@ class _LoginScreenState extends State<LoginScreen> {
       statusBarIconBrightness: Brightness.light,
     ));
   }
+
+  final bool state = true;
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +60,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       title: TextBox(
                         onChanged: (value) {},
                         controller: TextEditingController(),
-                        hint: "البريد الإلكتروني",
+                        hint: "${AppMessages.emailHint}",
                         icon: CupertinoIcons.mail_solid,
                         keyboardType: TextInputType.emailAddress,
                         suffixIcon: Icon(
-                          true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                          color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                          state ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                          color: state ? AppTheme.lightMainColor : AppTheme.redIconColor,
                         ),
                       ),
                     ),
@@ -73,20 +76,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       title: TextBox(
                         onChanged: (value) {},
                         controller: TextEditingController(),
-                        hint: "كلمة المرور",
+                        hint: "${AppMessages.passwordHint}",
                         icon: CupertinoIcons.lock_shield_fill,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
                         suffixIcon: Icon(
                           Icons.remove_red_eye,
-                          color: true ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
+                          color: state ? AppTheme.blackIconColor.withOpacity(.25) : AppTheme.lightMainColor,
                         ),
                       ),
                     ),
                     ListTile(
                       dense: true,
                       title: LabelText(
-                        label: "هل نسيت كلمة السر؟",
+                        label: "${AppMessages.forgetPasswordLabel}",
                         color: AppTheme.blackTextColor.withOpacity(.75),
                         textAlign: TextAlign.end,
                       ),
@@ -96,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       minVerticalPadding: 0,
                       title: ButtonClick(
                         onPressed: () => Get.offAll(() => HomeScreen()),
-                        label: "تسجيل الدخول",
+                        label: "${AppMessages.loginTitle}",
                         textColor: AppTheme.whiteTextColor,
                         backColor: AppTheme.mainColor,
                       ),
@@ -106,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       contentPadding: const EdgeInsets.all(5),
                       minVerticalPadding: 1,
                       title: LabelText(
-                        label: "قم بالتسجيل عبر",
+                        label: "${AppMessages.registerWith}",
                         color: AppTheme.blackTextColor.withOpacity(.75),
                       ),
                       subtitle: Padding(
@@ -119,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: SocialButton(
-                                  image: "assets/images/facebook.png",
+                                  image: "${AppMessages.facebookIcon}",
                                   color: AppTheme.facebookColor,
                                 ),
                               ),
@@ -130,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: SocialButton(
-                                  image: "assets/images/google.png",
+                                  image: "${AppMessages.googleIcon}",
                                 ),
                               ),
                             ),
@@ -142,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       dense: true,
                       onTap: () => Get.off(() => RegisterScreen()),
                       title: LabelText(
-                        label: "انشاء حساب جديد",
+                        label: "${AppMessages.createNewAccount}",
                         color: AppTheme.blackTextColor.withOpacity(.75),
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/widgets/label_text.dart';
@@ -35,13 +36,13 @@ class CartShape extends StatelessWidget {
           children: [
             Expanded(
               child: LabelText(
-                label: "${meal.time.toStringAsFixed(2)} DH",
+                label: "${meal.time.toStringAsFixed(2)} ${AppMessages.currencyUnit}",
                 color: AppTheme.blackTextColor.withOpacity(.75),
                 textAlign: TextAlign.start,
               ),
             ),
             LabelText(
-              label: "${meal.time} min.",
+              label: "${meal.time} ${AppMessages.timeUnit}",
               color: AppTheme.blackTextColor.withOpacity(.5),
             ),
             SizedBox(width: 10),

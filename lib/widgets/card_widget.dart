@@ -7,16 +7,17 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CreditCardWidget(
-      cardNumber: "5500 0000 0000 0000",
-      expiryDate: "07/24",
-      cardHolderName: "Mr. John Doe",
-      cvvCode: "●●●●",
+      cardNumber: "${AppConstant.cardModel.cardNumber}",
+      expiryDate: "${AppConstant.cardModel.expiryDate}",
+      cardHolderName: "${AppConstant.cardModel.cardHolderName}",
+      cvvCode: "${AppConstant.cardModel.cvvCode}",
       showBackView: false,
       animationDuration: AppConstant.duration,
-      height: 150,
+      height: 200,
       textStyle: TextStyle(
         color: AppTheme.whiteTextColor,
         fontWeight: FontWeight.w900,
+        fontSize: 20,
       ),
       obscureCardNumber: true,
       obscureCardCvv: true,

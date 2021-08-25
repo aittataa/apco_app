@@ -35,7 +35,6 @@ class MealsBar extends StatelessWidget {
             Meal meal = category.meals[i];
             return MealShape(
               meal: meal,
-              state: true,
               onTap: () {
                 Get.to(() => DetailsScreen(index: i, category: category));
               },

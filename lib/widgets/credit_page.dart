@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/button_click.dart';
 import 'package:apco_app/widgets/card_widget.dart';
@@ -25,39 +26,39 @@ class CreditPage extends StatelessWidget {
           children: [
             ListTile(
               title: LabelText(
-                label: "تاكيد بطاقة الائتمان",
+                label: "${AppMessages.creditPageTitle}",
                 color: AppTheme.blackTextColor.withOpacity(.75),
               ),
             ),
             CreditCardForm(
               onCreditCardModelChange: (CreditCardModel data) {},
-              cardNumber: "0000 0000 0000 0000",
-              expiryDate: "MM/YY",
-              cardHolderName: "Mr. John Doe",
-              cvvCode: "000",
+              cardNumber: "${AppConstant.cardModel.cardNumber}",
+              expiryDate: "${AppConstant.cardModel.expiryDate}",
+              cardHolderName: "${AppConstant.cardModel.cardHolderName}",
+              cvvCode: "${AppConstant.cardModel.cvvCode}",
               obscureCvv: true,
               obscureNumber: true,
               themeColor: AppTheme.transparentColor,
               textColor: AppTheme.blackTextColor,
               cursorColor: AppTheme.mainColor,
               formKey: formKey,
-              numberValidationMessage: "Invalid Account Number",
-              dateValidationMessage: "Invalid Date",
-              cvvValidationMessage: "Invalid CVV",
+              numberValidationMessage: "${AppMessages.numberValidationMessage}",
+              dateValidationMessage: "${AppMessages.dateValidationMessage}",
+              cvvValidationMessage: "${AppMessages.cvvValidationMessage}",
               cardNumberDecoration: AppConstant.inputDecoration(
-                labelText: "Account Number",
-                hintText: "0000 0000 0000 0000",
+                labelText: "${AppMessages.numberLabelText}",
+                hintText: "${AppMessages.numberHintText}",
               ),
               expiryDateDecoration: AppConstant.inputDecoration(
-                labelText: "Expired Date",
-                hintText: "MM/YY",
+                labelText: "${AppMessages.dateLabelText}",
+                hintText: "${AppMessages.dateHintText}",
               ),
               cvvCodeDecoration: AppConstant.inputDecoration(
-                labelText: "CVV",
-                hintText: "●●●●",
+                labelText: "${AppMessages.cvvLabelText}",
+                hintText: "${AppMessages.cvvHintText}",
               ),
               cardHolderDecoration: AppConstant.inputDecoration(
-                labelText: "Card Holder",
+                labelText: "${AppMessages.cardHolderLabelText}",
               ),
             ),
             ListTile(
@@ -65,7 +66,7 @@ class CreditPage extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(horizontal: 25),
               minVerticalPadding: 1,
               title: ButtonClick(
-                label: "تاكيد",
+                label: "${AppMessages.confirmTitle}",
                 textColor: AppTheme.whiteTextColor,
                 backColor: AppTheme.mainColor,
               ),

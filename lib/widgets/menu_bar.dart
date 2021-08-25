@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/screens/categories_screen.dart';
 import 'package:apco_app/screens/meals_screen.dart';
@@ -13,7 +14,7 @@ class MenuBar extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: TitleBar(
-        title: "القائمة",
+        title: "${AppMessages.menuTitle}",
         onTap: () => Get.to(() => CategoriesScreen()),
       ),
       subtitle: SizedBox(

@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
@@ -20,7 +21,7 @@ class CategoriesScreen extends StatelessWidget {
         leading: BackIcon(),
         centerTitle: true,
         title: LabelText(
-          label: "القائمة",
+          label: "${AppMessages.menuTitle}",
           color: AppTheme.blackTextColor.withOpacity(.75),
         ),
         actions: [

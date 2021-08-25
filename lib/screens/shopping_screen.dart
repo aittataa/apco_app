@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
@@ -23,13 +24,15 @@ class ShoppingScreen extends StatelessWidget {
         leading: BackIcon(),
         centerTitle: true,
         title: LabelText(
-          label: "طلباتي",
+          label: "${AppMessages.shoppingTitle}",
           color: AppTheme.blackTextColor.withOpacity(.75),
         ),
         actions: [
           FunctionButton(
             icon: CupertinoIcons.heart_fill,
-            onPressed: () => Get.off(() => FavoriteScreen()),
+            onPressed: () {
+              Get.off(() => FavoriteScreen());
+            },
           ),
         ],
       ),
@@ -55,13 +58,13 @@ class ShoppingScreen extends StatelessWidget {
           title: Row(
             children: [
               LabelText(
-                label: "250 DH",
+                label: "250 ${AppMessages.currencyUnit}",
                 color: AppTheme.whiteTextColor,
                 textAlign: TextAlign.end,
               ),
               Expanded(
                 child: LabelText(
-                  label: "إجمالي الطلبات",
+                  label: "${AppMessages.totalShopping}",
                   color: AppTheme.whiteTextColor,
                   textAlign: TextAlign.end,
                 ),
@@ -75,7 +78,9 @@ class ShoppingScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: IconButton(
-              onPressed: () => Get.to(() => PaymentScreen()),
+              onPressed: () {
+                Get.to(() => PaymentScreen());
+              },
               padding: EdgeInsets.zero,
               splashColor: AppTheme.transparentColor,
               highlightColor: AppTheme.transparentColor,

@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:flutter/material.dart';
 
 class ExpandedLogo extends StatelessWidget {
@@ -15,7 +16,7 @@ class ExpandedLogo extends StatelessWidget {
           shape: BoxShape.circle,
           boxShadow: [AppConstant.boxShadow],
         ),
-        child: Image.asset("assets/icons/app_icon_round_1.0.png"),
+        child: Image.asset("${AppMessages.appIconRound}"),
       ),
     );
   }

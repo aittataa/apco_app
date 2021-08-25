@@ -1,3 +1,4 @@
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/credit_page.dart';
@@ -24,7 +25,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         leading: BackIcon(),
         centerTitle: true,
         title: LabelText(
-          label: "وسيلة الدفع",
+          label: "${AppMessages.paymentTitle}",
           color: AppTheme.blackTextColor.withOpacity(.75),
         ),
       ),
@@ -32,8 +33,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
         padding: EdgeInsets.all(10),
         children: [
           PaymentShape(
-            image: "https://www.nerdwallet.com/assets/blog/wp-content/uploads/2019/07/credit-cards-4-steps-1920x1152.jpg",
-            label: "بطاقة الائتمان",
+            image: "${AppMessages.creditIcon}",
+            label: "${AppMessages.creditTitle}",
             onTap: () {
               showCupertinoModalPopup(
                 context: context,
@@ -44,8 +45,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
             },
           ),
           PaymentShape(
-            image: "https://economictimes.indiatimes.com/thumb/msid-83058184,width-1200,height-900,resizemode-4,imgsize-47252/cod-istock.jpg",
-            label: "الدفع عند الاستلام",
+            image: "${AppMessages.deliveryIcon}",
+            label: "${AppMessages.deliveryTitle}",
             onTap: () {
               showCupertinoModalPopup(
                 context: context,

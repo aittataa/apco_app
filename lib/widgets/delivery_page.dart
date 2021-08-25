@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/button_click.dart';
 import 'package:apco_app/widgets/label_text.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DeliveryPage extends StatelessWidget {
+  final bool state = true;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -21,7 +23,7 @@ class DeliveryPage extends StatelessWidget {
           children: [
             ListTile(
               title: LabelText(
-                label: "تاكيد عنوان الاقامة",
+                label: "${AppMessages.deliveryPageTitle}",
                 color: AppTheme.blackTextColor.withOpacity(.75),
               ),
             ),
@@ -31,12 +33,12 @@ class DeliveryPage extends StatelessWidget {
               minVerticalPadding: 1,
               title: TextBox(
                 controller: TextEditingController(),
-                hint: "عنوان الاقامة",
+                hint: "${AppMessages.addressHint}",
                 icon: CupertinoIcons.house_alt_fill,
                 keyboardType: TextInputType.text,
                 suffixIcon: Icon(
-                  true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                  color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                  state ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                  color: state ? AppTheme.lightMainColor : AppTheme.redIconColor,
                 ),
               ),
             ),
@@ -46,12 +48,12 @@ class DeliveryPage extends StatelessWidget {
               minVerticalPadding: 1,
               title: TextBox(
                 controller: TextEditingController(),
-                hint: "الرمز البريدي",
+                hint: "${AppMessages.zipCodeHint}",
                 icon: CupertinoIcons.location_solid,
                 keyboardType: TextInputType.number,
                 suffixIcon: Icon(
-                  true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                  color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                  state ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                  color: state ? AppTheme.lightMainColor : AppTheme.redIconColor,
                 ),
               ),
             ),
@@ -61,12 +63,12 @@ class DeliveryPage extends StatelessWidget {
               minVerticalPadding: 1,
               title: TextBox(
                 controller: TextEditingController(),
-                hint: "المدينة، الدولة",
+                hint: "${AppMessages.stateHint}",
                 icon: CupertinoIcons.building_2_fill,
                 keyboardType: TextInputType.text,
                 suffixIcon: Icon(
-                  true ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
-                  color: true ? AppTheme.lightMainColor : AppTheme.redIconColor,
+                  state ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.clear_circled_solid,
+                  color: state ? AppTheme.lightMainColor : AppTheme.redIconColor,
                 ),
               ),
             ),
@@ -75,7 +77,7 @@ class DeliveryPage extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(horizontal: 25),
               minVerticalPadding: 1,
               title: ButtonClick(
-                label: "تاكيد",
+                label: "${AppMessages.confirmTitle}",
                 textColor: AppTheme.whiteTextColor,
                 backColor: AppTheme.mainColor,
               ),
@@ -84,7 +86,7 @@ class DeliveryPage extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(horizontal: 25),
               minVerticalPadding: 1,
               title: LabelText(
-                label: "أو",
+                label: "${AppMessages.orTitle}",
                 color: AppTheme.blackTextColor.withOpacity(.75),
               ),
             ),
@@ -93,7 +95,7 @@ class DeliveryPage extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(horizontal: 25),
               minVerticalPadding: 1,
               title: ButtonClick(
-                label: "الرياض - المملكة العربية السعودية",
+                label: "${AppMessages.fakeAddress}",
                 textColor: AppTheme.whiteTextColor,
                 backColor: AppTheme.mainColor,
               ),

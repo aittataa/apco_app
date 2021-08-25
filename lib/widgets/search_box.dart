@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class SearchBox extends StatelessWidget {
             Icons.search,
             color: AppTheme.lightMainColor,
           ),
-          hintText: "Search...",
+          hintText: "${AppMessages.searchHint}",
           hintStyle: TextStyle(
             color: AppTheme.blackTextColor.withOpacity(.5),
             fontWeight: FontWeight.bold,
