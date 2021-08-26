@@ -39,6 +39,7 @@ class FavoriteScreen extends StatelessWidget {
       body: GridView.builder(
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.symmetric(vertical: 5),
         scrollDirection: Axis.vertical,
         gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),
         itemCount: AppConstant.menuList[random].meals.length,

@@ -8,6 +8,7 @@ import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/image_network.dart';
 import 'package:apco_app/widgets/label_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -152,11 +153,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           child: Column(
                             children: [
                               Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(.5),
-                                  child: ClipRRect(
+                                child: Container(
+                                  margin: const EdgeInsets.all(.5),
+                                  decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    child: ImageNetwork(image: meal.picture),
+                                    image: DecorationImage(
+                                      image: CachedNetworkImageProvider("${meal.picture}"),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),

@@ -27,21 +27,25 @@ class CartShape extends StatelessWidget {
           backgroundColor: AppTheme.backColor,
           backgroundImage: CachedNetworkImageProvider("${meal.picture}"),
         ),
-        title: LabelText(
-          label: "${meal.label}",
-          color: AppTheme.blackTextColor.withOpacity(.75),
-          textAlign: TextAlign.end,
+        title: Row(
+          children: [
+            LabelText(
+              label: "${meal.time.toStringAsFixed(2)} ${AppMessages.currencyUnit}",
+              textAlign: TextAlign.center,
+              color: AppTheme.blackTextColor,
+            ),
+            Expanded(
+              child: LabelText(
+                label: "${meal.label}",
+                color: AppTheme.blackTextColor,
+                textAlign: TextAlign.end,
+              ),
+            ),
+          ],
         ),
         subtitle: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Expanded(
-              child: LabelText(
-                label: "${meal.time.toStringAsFixed(2)} ${AppMessages.currencyUnit}",
-                color: AppTheme.blackTextColor.withOpacity(.75),
-                textAlign: TextAlign.start,
-              ),
-            ),
             LabelText(
               label: "${meal.time} ${AppMessages.timeUnit}",
               color: AppTheme.blackTextColor.withOpacity(.5),

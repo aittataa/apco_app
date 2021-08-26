@@ -40,7 +40,7 @@ class ShoppingScreen extends StatelessWidget {
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         itemCount: AppConstant.menuList[0].meals.length,
         itemBuilder: (context, i) {
           Meal meal = AppConstant.menuList[0].meals[i];

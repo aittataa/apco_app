@@ -14,24 +14,27 @@ class SearchBox extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [AppConstant.boxShadow],
       ),
-      child: TextField(
-        cursorColor: AppTheme.mainColor,
-        style: TextStyle(
-          color: AppTheme.blackTextColor.withOpacity(.75),
-          fontWeight: FontWeight.w900,
-        ),
-        textInputAction: TextInputAction.done,
-        keyboardType: TextInputType.text,
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          icon: Icon(
-            Icons.search,
-            color: AppTheme.lightMainColor,
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: TextField(
+          cursorColor: AppTheme.mainColor,
+          style: TextStyle(
+            color: AppTheme.blackTextColor.withOpacity(.75),
+            fontWeight: FontWeight.w900,
           ),
-          hintText: "${AppMessages.searchHint}",
-          hintStyle: TextStyle(
-            color: AppTheme.blackTextColor.withOpacity(.5),
-            fontWeight: FontWeight.bold,
+          textInputAction: TextInputAction.done,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            icon: Icon(
+              Icons.search,
+              color: AppTheme.lightMainColor,
+            ),
+            hintText: "${AppMessages.searchHint}",
+            hintStyle: TextStyle(
+              color: AppTheme.blackTextColor.withOpacity(.5),
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

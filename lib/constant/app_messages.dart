@@ -19,7 +19,8 @@ class AppMessages {
   static String appTitle = ["Lounge 940", "لاونج 940"][0];
   static const String appTitleAR = "لاونج 940";
   static const String GREETING_SUBTITLE = "شهية طيبة";
-  static const String searchHint = "Search...";
+  static const String searchHint = "ابحت...";
+  // static const String searchHint = "Search...";
 
   /// TODO : Favorite Screen Titles
   static const String favoriteTitle = "مفضلاتي";
