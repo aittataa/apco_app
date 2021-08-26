@@ -4,6 +4,7 @@ import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/label_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -121,7 +122,7 @@ class MealShape extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                   image: DecorationImage(
-                    image: NetworkImage("${meal.picture}"),
+                    image: CachedNetworkImageProvider("${meal.picture}"),
                     fit: BoxFit.cover,
                   ),
                 ),

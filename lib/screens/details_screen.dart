@@ -6,6 +6,7 @@ import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/favorite_screen.dart';
 import 'package:apco_app/screens/shopping_screen.dart';
 import 'package:apco_app/widgets/back_icon.dart';
+import 'package:apco_app/widgets/image_network.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -76,12 +77,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 child: Container(
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
                     boxShadow: [AppConstant.boxShadow],
-                    image: DecorationImage(
-                      image: NetworkImage("${meal.picture}"),
-                      fit: BoxFit.cover,
-                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(25),
+                    child: ImageNetwork(image: meal.picture),
                   ),
                 ),
               ),
@@ -152,14 +152,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           child: Column(
                             children: [
                               Expanded(
-                                child: Container(
-                                  margin: const EdgeInsets.all(.5),
-                                  decoration: BoxDecoration(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(.5),
+                                  child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                      image: NetworkImage("${meal.picture}"),
-                                      fit: BoxFit.cover,
-                                    ),
+                                    child: ImageNetwork(image: meal.picture),
                                   ),
                                 ),
                               ),

@@ -1,6 +1,7 @@
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/label_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,8 @@ class PaymentShape extends StatelessWidget {
         contentPadding: EdgeInsets.zero.copyWith(left: 10, right: 10),
         trailing: CircleAvatar(
           radius: 25,
-          backgroundImage: NetworkImage("$image"),
+          backgroundColor: AppTheme.backColor,
+          backgroundImage: CachedNetworkImageProvider("$image"),
         ),
         title: LabelText(
           label: "$label",

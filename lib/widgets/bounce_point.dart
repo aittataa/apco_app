@@ -1,8 +1,7 @@
+import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-import '../constant/app_constant.dart';
-import '../constant/app_theme.dart';
 
 class BouncePoint extends StatelessWidget {
   final double size;

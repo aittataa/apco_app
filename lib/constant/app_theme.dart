@@ -12,12 +12,12 @@ class AppTheme {
   static const Color transparentColor = Color(0x00000000);
   static const Color facebookColor = Color(0xFF2196F3);
 
-  /// Icons Colors
+  /// TODO : Icons Colors
   static const Color whiteIconColor = Color(0xFFFFFFFF);
   static const Color redIconColor = Color(0xFFF44336);
   static const Color blackIconColor = Color(0xFF000000);
 
-  /// Text Colors
+  /// TODO : Text Colors
   static const Color whiteTextColor = Color(0xFFFFFFFF);
   static const Color blackTextColor = Color(0xFF000000);
 }
