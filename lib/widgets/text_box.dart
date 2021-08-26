@@ -36,6 +36,7 @@ class TextBox extends StatelessWidget {
             color: AppTheme.blackTextColor.withOpacity(.75),
             fontWeight: FontWeight.bold,
           ),
+          autofocus: true,
           obscureText: obscureText,
           obscuringCharacter: "${AppMessages.obscuringCharacter}",
           decoration: InputDecoration(

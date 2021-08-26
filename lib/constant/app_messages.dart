@@ -2,7 +2,9 @@ class AppMessages {
   static const String obscuringCharacter = "●";
 
   /// TODO : Icons, Images and Assets
-  static const String appIconRound = "assets/icons/app_icon_round_1.0.png";
+  static const String icon = "assets/icons/logo.png";
+  static const String appIcon = "assets/icons/app_icon.png";
+  static const String appIconRound = "assets/icons/app_icon_round.png";
   static const String facebookIcon = "assets/images/facebook.png";
   static const String googleIcon = "assets/images/google.png";
 
@@ -14,7 +16,8 @@ class AppMessages {
   static const String callUsUrl = "tel:+212673377573";
 
   /// TODO : Home Screen Titles
-  static const String appTitle = "Lunge 940";
+  static String appTitle = ["Lounge 940", "لاونج 940"][0];
+  static const String appTitleAR = "لاونج 940";
   static const String GREETING_SUBTITLE = "شهية طيبة";
   static const String searchHint = "Search...";
 
