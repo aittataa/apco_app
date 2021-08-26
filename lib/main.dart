@@ -27,7 +27,6 @@ class APCO extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppMessages.appTitle,
-      themeMode: ThemeMode.light,
       color: AppTheme.backColor,
       theme: ThemeData(
         primaryColor: AppTheme.backColor,

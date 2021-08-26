@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Padding(
