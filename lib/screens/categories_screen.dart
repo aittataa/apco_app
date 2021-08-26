@@ -8,6 +8,7 @@ import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/function_button.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:apco_app/widgets/menu_shape.dart';
+import 'package:apco_app/widgets/search_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,27 +34,35 @@ class CategoriesScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: GridView.builder(
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        padding: EdgeInsets.all(10),
-        gridDelegate: AppConstant.gridDelegate(
-          crossAxisCount: 2,
-          childAspectRatio: 0.75,
-          spacing: 10,
+      body: ListTile(
+        contentPadding: EdgeInsets.zero,
+        minVerticalPadding: 0,
+        title: Padding(
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+          child: SearchBox(),
         ),
-        itemCount: AppConstant.menuList.length,
-        itemBuilder: (context, i) {
-          Categories category = AppConstant.menuList[i];
-          return MenuShape(
-            category: category,
-            onTap: () {
-              AppConstant.itemIndex = i;
-              Get.to(() => MealsScreen(category: category));
-            },
-          );
-        },
+        subtitle: GridView.builder(
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          padding: EdgeInsets.all(10),
+          gridDelegate: AppConstant.gridDelegate(
+            crossAxisCount: 2,
+            childAspectRatio: 0.75,
+            spacing: 10,
+          ),
+          itemCount: AppConstant.menuList.length,
+          itemBuilder: (context, i) {
+            Categories category = AppConstant.menuList[i];
+            return MenuShape(
+              category: category,
+              onTap: () {
+                AppConstant.itemIndex = i;
+                Get.to(() => MealsScreen(category: category));
+              },
+            );
+          },
+        ),
       ),
     );
   }

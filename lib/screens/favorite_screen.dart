@@ -10,6 +10,7 @@ import 'package:apco_app/widgets/back_icon.dart';
 import 'package:apco_app/widgets/function_button.dart';
 import 'package:apco_app/widgets/label_text.dart';
 import 'package:apco_app/widgets/meal_shape.dart';
+import 'package:apco_app/widgets/search_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,23 +37,30 @@ class FavoriteScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: GridView.builder(
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.symmetric(vertical: 5),
-        scrollDirection: Axis.vertical,
-        gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),
-        itemCount: AppConstant.menuList[random].meals.length,
-        itemBuilder: (context, i) {
-          Meal meal = AppConstant.menuList[random].meals[i];
-          return MealShape(
-            meal: meal,
-            state: true,
-            onTap: () {
-              Get.to(() => DetailsScreen(index: i, category: AppConstant.menuList[random]));
-            },
-          );
-        },
+      body: ListTile(
+        contentPadding: EdgeInsets.zero,
+        minVerticalPadding: 0,
+        title: Padding(
+          padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+          child: SearchBox(),
+        ),
+        subtitle: GridView.builder(
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),
+          itemCount: AppConstant.menuList[random].meals.length,
+          itemBuilder: (context, i) {
+            Meal meal = AppConstant.menuList[random].meals[i];
+            return MealShape(
+              meal: meal,
+              state: true,
+              onTap: () {
+                Get.to(() => DetailsScreen(index: i, category: AppConstant.menuList[random]));
+              },
+            );
+          },
+        ),
       ),
     );
   }
