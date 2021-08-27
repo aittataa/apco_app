@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
@@ -46,7 +47,7 @@ class CategoriesScreen extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
           padding: EdgeInsets.all(10),
-          gridDelegate: AppConstant.gridDelegate(
+          gridDelegate: AppFunctions.gridDelegate(
             crossAxisCount: 2,
             childAspectRatio: 0.75,
             spacing: 10,

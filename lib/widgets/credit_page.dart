@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/widgets/button_click.dart';
@@ -45,19 +46,19 @@ class CreditPage extends StatelessWidget {
               numberValidationMessage: "${AppMessages.numberValidationMessage}",
               dateValidationMessage: "${AppMessages.dateValidationMessage}",
               cvvValidationMessage: "${AppMessages.cvvValidationMessage}",
-              cardNumberDecoration: AppConstant.inputDecoration(
+              cardNumberDecoration: AppFunctions.inputDecoration(
                 labelText: "${AppMessages.numberLabelText}",
                 hintText: "${AppMessages.numberHintText}",
               ),
-              expiryDateDecoration: AppConstant.inputDecoration(
+              expiryDateDecoration: AppFunctions.inputDecoration(
                 labelText: "${AppMessages.dateLabelText}",
                 hintText: "${AppMessages.dateHintText}",
               ),
-              cvvCodeDecoration: AppConstant.inputDecoration(
+              cvvCodeDecoration: AppFunctions.inputDecoration(
                 labelText: "${AppMessages.cvvLabelText}",
                 hintText: "${AppMessages.cvvHintText}",
               ),
-              cardHolderDecoration: AppConstant.inputDecoration(
+              cardHolderDecoration: AppFunctions.inputDecoration(
                 labelText: "${AppMessages.cardHolderLabelText}",
               ),
             ),

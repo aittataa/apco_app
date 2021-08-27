@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
@@ -76,6 +77,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
             children: [
               Expanded(
                 child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     boxShadow: [AppConstant.boxShadow],
@@ -139,9 +142,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       reverse: true,
                       shrinkWrap: true,
                       physics: BouncingScrollPhysics(),
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(10),
                       scrollDirection: Axis.horizontal,
-                      gridDelegate: AppConstant.gridDelegate(spacing: 5),
+                      gridDelegate: AppFunctions.gridDelegate(spacing: 5),
                       itemCount: meal.rate.floor(),
                       itemBuilder: (context, i) {
                         return Container(

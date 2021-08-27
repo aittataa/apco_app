@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,7 +36,7 @@ class FloatingButton extends StatelessWidget {
           foregroundColor: AppTheme.lightMainColor,
         ),
         SpeedDialChild(
-          onTap: () => AppConstant.launchURL("${AppMessages.textUsUrl}"),
+          onTap: () => AppFunctions.launchURL("${AppMessages.textUsUrl}"),
           child: Icon(CupertinoIcons.chat_bubble_fill),
           label: "${AppMessages.textUs}",
           labelStyle: TextStyle(
@@ -46,7 +47,7 @@ class FloatingButton extends StatelessWidget {
           foregroundColor: AppTheme.lightMainColor,
         ),
         SpeedDialChild(
-          onTap: () => AppConstant.launchURL("${AppMessages.callUsUrl}"),
+          onTap: () => AppFunctions.launchURL("${AppMessages.callUsUrl}"),
           child: Icon(CupertinoIcons.phone_fill),
           label: "${AppMessages.callUs}",
           labelStyle: TextStyle(

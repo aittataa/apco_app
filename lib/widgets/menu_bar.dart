@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/screens/categories_screen.dart';
@@ -24,7 +25,7 @@ class MenuBar extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           padding: EdgeInsets.all(10),
-          gridDelegate: AppConstant.gridDelegate(childAspectRatio: 1.5, spacing: 10),
+          gridDelegate: AppFunctions.gridDelegate(childAspectRatio: 1.5, spacing: 10),
           itemCount: AppConstant.menuList.length,
           itemBuilder: (context, i) {
             Categories category = AppConstant.menuList[i];

@@ -1,4 +1,5 @@
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
@@ -71,7 +72,7 @@ class _MealsScreenState extends State<MealsScreen> {
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
-              gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),
+              gridDelegate: AppFunctions.gridDelegate(childAspectRatio: 2),
               itemCount: category.meals.length,
               itemBuilder: (context, i) {
                 Meal meal = category.meals[i];

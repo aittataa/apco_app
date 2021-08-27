@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:apco_app/constant/app_constant.dart';
+import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
 import 'package:apco_app/models/meal.dart';
@@ -48,7 +49,7 @@ class FavoriteScreen extends StatelessWidget {
           shrinkWrap: true,
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
-          gridDelegate: AppConstant.gridDelegate(childAspectRatio: 2),
+          gridDelegate: AppFunctions.gridDelegate(childAspectRatio: 2),
           itemCount: AppConstant.menuList[random].meals.length,
           itemBuilder: (context, i) {
             Meal meal = AppConstant.menuList[random].meals[i];
