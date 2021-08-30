@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
@@ -9,7 +7,7 @@ import 'package:get/get.dart';
 
 class AppConstant {
   static int itemIndex = 0;
-  static int random = Random().nextInt(7);
+  // static int random = Random().nextInt(7);
   static const Duration duration = Duration(milliseconds: 1500);
   static const Duration animatedDuration = Duration(milliseconds: 1000);
   static const Curve curve = Curves.linearToEaseOut;

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_functions.dart';
 import 'package:apco_app/constant/app_messages.dart';
@@ -16,7 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  final Categories myList = AppConstant.menuList[AppConstant.random];
+  final Categories myList = AppConstant.menuList[Random().nextInt(7)];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

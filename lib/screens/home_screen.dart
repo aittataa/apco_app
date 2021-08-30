@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/constant/app_messages.dart';
 import 'package:apco_app/constant/app_theme.dart';
@@ -74,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           MenuBar(),
           MealsBar(
-            category: myList[AppConstant.random],
+            category: myList[Random().nextInt(7)],
           ),
         ],
       ),
