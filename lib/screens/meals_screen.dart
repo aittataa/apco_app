@@ -23,10 +23,12 @@ class MealsScreen extends StatefulWidget {
 }
 
 class _MealsScreenState extends State<MealsScreen> {
+  late List<Categories> myList;
   late Categories category;
   @override
   void initState() {
     super.initState();
+    myList = AppConstant.menuList;
     category = widget.category;
   }
 
@@ -54,15 +56,14 @@ class _MealsScreenState extends State<MealsScreen> {
             contentPadding: EdgeInsets.zero,
             minVerticalPadding: 0,
             title: Padding(
-              padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
+              padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
               child: SearchBox(),
             ),
             subtitle: ItemsBar(
-              index: AppConstant.itemIndex,
+              index: myList.indexOf(category),
               onPageChanged: (index) {
                 setState(() {
-                  AppConstant.itemIndex = index;
-                  category = AppConstant.menuList[AppConstant.itemIndex];
+                  category = myList[index];
                 });
               },
             ),

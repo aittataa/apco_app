@@ -10,13 +10,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MenuBar extends StatelessWidget {
+  final List<Categories> myList = AppConstant.menuList;
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: TitleBar(
         title: "${AppMessages.menuTitle}",
-        onTap: () => Get.to(() => CategoriesScreen()),
+        onTap: () {
+          Get.to(() => CategoriesScreen());
+        },
       ),
       subtitle: SizedBox(
         height: 250,
@@ -26,13 +29,12 @@ class MenuBar extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           padding: EdgeInsets.all(10),
           gridDelegate: AppFunctions.gridDelegate(childAspectRatio: 1.5, spacing: 10),
-          itemCount: AppConstant.menuList.length,
+          itemCount: myList.length,
           itemBuilder: (context, i) {
-            Categories category = AppConstant.menuList[i];
+            Categories category = myList[i];
             return MenuShape(
               category: category,
               onTap: () {
-                AppConstant.itemIndex = i;
                 Get.to(() => MealsScreen(category: category));
               },
             );

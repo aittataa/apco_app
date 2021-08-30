@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:apco_app/constant/app_constant.dart';
@@ -17,7 +16,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ShoppingScreen extends StatelessWidget {
-  final myList = AppConstant.menuList[Random().nextInt(7)];
+  final myList = AppConstant.menuList[AppConstant.random];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

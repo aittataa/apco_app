@@ -58,7 +58,6 @@ class CategoriesScreen extends StatelessWidget {
             return MenuShape(
               category: category,
               onTap: () {
-                AppConstant.itemIndex = i;
                 Get.to(() => MealsScreen(category: category));
               },
             );

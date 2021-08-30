@@ -1,4 +1,3 @@
-import 'package:apco_app/constant/app_constant.dart';
 import 'package:apco_app/models/categories.dart';
 import 'package:apco_app/models/meal.dart';
 import 'package:apco_app/screens/details_screen.dart';
@@ -11,9 +10,12 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class MealsBar extends StatelessWidget {
-  final int index;
   final Categories category;
-  const MealsBar({required this.index, required this.category});
+  //final dynamic onTap;
+  const MealsBar({
+    required this.category,
+    //this.onTap,
+  });
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -21,7 +23,6 @@ class MealsBar extends StatelessWidget {
       title: TitleBar(
         title: "${category.label}",
         onTap: () {
-          AppConstant.itemIndex = index;
           Get.to(() => MealsScreen(category: category));
         },
       ),
