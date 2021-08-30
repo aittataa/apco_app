@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:apco_app/constant/app_constant.dart';
@@ -16,6 +17,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ShoppingScreen extends StatelessWidget {
+  final myList = AppConstant.menuList[Random().nextInt(7)];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,56 +43,61 @@ class ShoppingScreen extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-        itemCount: AppConstant.menuList[0].meals.length,
+        itemCount: myList.meals.length,
         itemBuilder: (context, i) {
-          Meal meal = AppConstant.menuList[0].meals[i];
+          Meal meal = myList.meals[i];
           return CartShape(meal: meal);
         },
       ),
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        decoration: BoxDecoration(
-          color: AppTheme.lightMainColor,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: ListTile(
-          contentPadding: EdgeInsets.zero.copyWith(right: 20),
-          title: Row(
-            children: [
-              LabelText(
-                label: "250 ${AppMessages.currencyUnit}",
-                color: AppTheme.whiteTextColor,
-                textAlign: TextAlign.end,
-              ),
-              Expanded(
-                child: LabelText(
-                  label: "${AppMessages.totalShopping}",
-                  color: AppTheme.whiteTextColor,
-                  textAlign: TextAlign.end,
-                ),
-              ),
-            ],
-          ),
-          leading: Container(
-            margin: EdgeInsets.all(5),
+      bottomNavigationBar: Builder(
+        builder: (context) {
+          final double totalShopping = myList.meals.fold(0, (a, b) => a + b.time);
+          return Container(
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
-              color: AppTheme.backColor,
+              color: AppTheme.lightMainColor,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: IconButton(
-              onPressed: () {
-                Get.to(() => PaymentScreen());
-              },
-              padding: EdgeInsets.zero,
-              splashColor: AppTheme.transparentColor,
-              highlightColor: AppTheme.transparentColor,
-              icon: Icon(
-                CupertinoIcons.chevron_left_2,
-                color: AppTheme.mainColor,
+            child: ListTile(
+              contentPadding: EdgeInsets.zero.copyWith(right: 20),
+              title: Row(
+                children: [
+                  LabelText(
+                    label: "${totalShopping.toStringAsFixed(2)} ${AppMessages.currencyUnit}",
+                    color: AppTheme.whiteTextColor,
+                    textAlign: TextAlign.end,
+                  ),
+                  Expanded(
+                    child: LabelText(
+                      label: "${AppMessages.totalShopping}",
+                      color: AppTheme.whiteTextColor,
+                      textAlign: TextAlign.end,
+                    ),
+                  ),
+                ],
+              ),
+              leading: Container(
+                margin: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: AppTheme.backColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    Get.to(() => PaymentScreen());
+                  },
+                  padding: EdgeInsets.zero,
+                  splashColor: AppTheme.transparentColor,
+                  highlightColor: AppTheme.transparentColor,
+                  icon: Icon(
+                    CupertinoIcons.chevron_left_2,
+                    color: AppTheme.mainColor,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

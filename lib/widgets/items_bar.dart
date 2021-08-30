@@ -6,13 +6,9 @@ import 'package:flutter/material.dart';
 
 class ItemsBar extends StatelessWidget {
   final int index;
-  final bool state;
-  final dynamic onTap;
   final dynamic onPageChanged;
   const ItemsBar({
     required this.index,
-    this.state = false,
-    this.onTap,
     this.onPageChanged,
   });
 

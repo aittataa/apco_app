@@ -34,6 +34,7 @@ class CartShape extends StatelessWidget {
               textAlign: TextAlign.center,
               color: AppTheme.blackTextColor,
             ),
+            SizedBox(width: 5),
             Expanded(
               child: LabelText(
                 label: "${meal.label}",
