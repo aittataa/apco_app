@@ -1,6 +1,6 @@
 # apco_app
 
-Menu App For You Resturents With Getx State Managemnet
+Restaurants App Menu.
 
 ## Screen Shots :
 
